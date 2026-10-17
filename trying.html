@@ -1,0 +1,3461 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Rwanda School of Hospitality | International Luxury Hotel School</title>
+
+<meta
+ name="description"
+ content="A premier international hospitality and professional leadership school in Kigali, blending African heritage with world-class hospitality standards."
+/>
+
+  <!-- Tailwind CSS Play CDN -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Lucide Icons -->
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+/* =====================================================
+   01. ROOT / COLOR VARIABLES
+===================================================== */
+
+:root{
+--forest-deep:#071A12;--forest:#0B241B;--emerald:#164A36;--emerald-light:#1E6147;
+--gold:#D6B56A;--gold-light:#F1E4C3;--gold-dark:#A67C28;
+--page-bg:#0E1412;--section-bg:#10382A;--section-dark:#071A12;
+--card-bg:rgba(23,32,28,.72);--glass-bg:rgba(11,36,27,.82);
+--text-main:#F7F8F6;--text-heading:#FAF8F2;--text-muted:rgba(247,248,246,.65);--text-soft:rgba(247,248,246,.8);
+--border-light:rgba(255,255,255,.1);--border-gold:rgba(214,181,106,.2);
+--shadow-soft:0 10px 40px rgba(0,0,0,.18);--shadow-deep:0 20px 60px rgba(0,0,0,.28);
+--theme-transition:background-color 500ms ease,color 400ms ease,border-color 500ms ease,box-shadow 500ms ease;
+}
+
+/* =====================================================
+   02. LIGHT THEME
+===================================================== */
+
+html.light-theme{
+--page-bg:#F7F8F6;--section-bg:#F2F5F2;--section-dark:#EAF0ED;
+--card-bg:rgba(255,255,255,.86);--glass-bg:rgba(255,255,255,.88);
+--text-main:#0B241B;--text-heading:#163C42;--text-muted:rgba(11,36,27,.62);--text-soft:rgba(11,36,27,.78);
+--border-light:rgba(11,36,27,.1);--border-gold:rgba(166,124,40,.24);
+--shadow-soft:0 10px 40px rgba(11,36,27,.08);--shadow-deep:0 20px 60px rgba(11,36,27,.12);
+}
+
+/* =====================================================
+   03. GLOBAL / BASE
+===================================================== */
+
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Plus Jakarta Sans",sans-serif;background:var(--page-bg);color:var(--text-main);overflow-x:hidden;transition:var(--theme-transition)}
+.serif{font-family:"Playfair Display",serif}
+section{transition:background-color 500ms ease,color 400ms ease,border-color 500ms ease}
+h1,h2,h3,h4,h5,h6{color:var(--text-heading);transition:color 400ms ease}
+p,span,li,td,th,label{transition:color 400ms ease}
+
+/* =====================================================
+   04. GLASS / CARDS
+===================================================== */
+
+.glass-luxury{background:var(--glass-bg);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid var(--border-gold);box-shadow:var(--shadow-soft);transition:var(--theme-transition)}
+.glass-card{background:var(--card-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--border-light);transition:background-color 400ms ease,border-color 400ms ease,transform 400ms ease,box-shadow 400ms ease}
+.glass-card:hover{border-color:rgba(214,181,106,.42);box-shadow:var(--shadow-deep);transform:translateY(-2px)}
+.green-glow{box-shadow:0 0 80px rgba(30,97,71,.2)}
+
+/* =====================================================
+   05. SELECTION / SCROLLBAR
+===================================================== */
+
+::selection{background:var(--gold);color:var(--forest-deep)}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--forest-deep)}
+::-webkit-scrollbar-thumb{background:#245340;border-radius:999px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* =====================================================
+   06. MAIN NAVIGATION
+===================================================== */
+
+#navbar{background:rgba(7,16,13,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(214,181,106,.12);box-shadow:0 8px 35px rgba(0,0,0,.16);transition:background-color 500ms ease,box-shadow 500ms ease,border-color 500ms ease,backdrop-filter 500ms ease}
+#navbar.nav-scrolled{background:rgba(7,16,13,.985);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom-color:rgba(214,181,106,.2);box-shadow:0 14px 45px rgba(0,0,0,.28)}
+#navbar nav{border-bottom:1px solid transparent;transition:border-color 500ms ease}
+#navbar.nav-scrolled nav{border-bottom-color:rgba(214,181,106,.12)}
+
+html.light-theme #navbar{background:rgba(249,250,250,.97);border-bottom-color:rgba(166,124,40,.16);box-shadow:0 8px 35px rgba(11,36,27,.08)}
+html.light-theme #navbar.nav-scrolled{background:rgba(249,250,250,.99);border-bottom-color:rgba(166,124,40,.24);box-shadow:0 14px 45px rgba(11,36,27,.12)}
+
+/* =====================================================
+   07. DESKTOP NAVIGATION LINKS
+===================================================== */
+
+.premium-nav-link{position:relative;display:flex;align-items:center;height:88px;padding:0 18px;color:rgba(255,255,255,.82);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:color 300ms ease,background-color 300ms ease}
+.premium-nav-link:not(:last-child)::before{content:"";position:absolute;right:0;top:50%;width:3px;height:3px;border-radius:999px;background:rgba(214,181,106,.65);transform:translateY(-50%) rotate(45deg)}
+.premium-nav-link::after{content:"";position:absolute;left:18px;right:18px;bottom:25px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform 350ms cubic-bezier(.4,0,.2,1)}
+.premium-nav-link:hover{color:var(--gold)}
+.premium-nav-link:hover::after{transform:scaleX(1)}
+.premium-nav-apply{color:var(--gold)}
+
+html.light-theme .premium-nav-link{color:rgba(5,7,6,.78)}
+html.light-theme .premium-nav-link:hover{color:var(--gold-dark)}
+html.light-theme .premium-nav-link::after{background:var(--gold-dark)}
+html.light-theme .premium-nav-apply{color:var(--gold-dark)}
+
+/* =====================================================
+   08. NAVIGATION LOGO / THEME TOGGLE
+===================================================== */
+
+#navbar a img{transition:transform 400ms cubic-bezier(.16,1,.3,1)}
+#navbar a:hover img{transform:scale(1.04)}
+
+#themeToggle{transition:transform 300ms ease,background-color 300ms ease,border-color 300ms ease,color 300ms ease}
+#themeToggle:hover{transform:scale(1.06)}
+html.light-theme #themeToggle{background:#fff;color:var(--gold-dark);border-color:rgba(166,124,40,.35)}
+html.light-theme #themeToggle:hover{background:#F2EEE4}
+
+/* =====================================================
+   09. MOBILE MENU
+===================================================== */
+
+#menuButton{transition:border-color 300ms ease,background-color 300ms ease,transform 300ms ease}
+#menuButton:hover{border-color:var(--gold);background:rgba(214,181,106,.06)}
+.menu-line{transform-origin:center;transition:transform 300ms ease,opacity 300ms ease}
+
+#menuPanel{border-radius:0;overflow:hidden;transform-origin:top right;transition:opacity 250ms ease,transform 250ms ease}
+#menuPanel.menu-open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+#menuPanel:not(.menu-open){opacity:0;transform:translateY(8px) scale(.97);pointer-events:none}
+
+.mobile-nav-link{position:relative;display:block;padding:14px 16px;color:rgba(255,255,255,.82);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;transition:color 250ms ease,background-color 250ms ease,padding-left 250ms ease}
+.mobile-nav-link:hover{color:var(--gold);background:rgba(214,181,106,.06);padding-left:21px}
+.mobile-nav-link::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--gold);transform:scaleY(0);transition:transform 250ms ease}
+.mobile-nav-link:hover::before{transform:scaleY(1)}
+
+html.light-theme #menuPanel{background:rgba(255,255,255,.97);border-color:rgba(166,124,40,.25);box-shadow:0 20px 50px rgba(11,36,27,.12)}
+html.light-theme .mobile-nav-link{color:rgba(5,7,6,.78)}
+html.light-theme .mobile-nav-link:hover{color:var(--gold-dark);background:rgba(166,124,40,.06)}
+
+/* =====================================================
+   10. HERO
+===================================================== */
+
+#hero{position:relative;isolation:isolate}
+.premium-editorial-hero{position:relative;background:var(--page-bg);color:var(--text-main);transition:var(--theme-transition)}
+
+.premium-editorial-hero .hero-circle-left{background:rgba(22,74,54,.35)}
+.premium-editorial-hero .hero-circle-center{border-color:rgba(255,255,255,.035)}
+.premium-editorial-hero .hero-circle-right{background:rgba(214,181,106,.06)}
+html.light-theme .premium-editorial-hero .hero-circle-left{background:#EAF0ED}
+html.light-theme .premium-editorial-hero .hero-circle-center{border-color:#fff}
+html.light-theme .premium-editorial-hero .hero-circle-right{background:#E8EFEB}
+
+/* =====================================================
+   11. HERO TYPOGRAPHY
+===================================================== */
+
+.premium-editorial-hero .hero-heading{color:var(--text-heading)}
+.premium-editorial-hero .hero-highlight,.premium-editorial-hero .hero-accent{color:var(--gold)}
+.premium-editorial-hero .hero-accent-line{background:var(--gold)}
+html.light-theme .premium-editorial-hero .hero-heading{color:#163C42}
+html.light-theme .premium-editorial-hero .hero-highlight{color:#164A36}
+html.light-theme .premium-editorial-hero .hero-accent{color:#A67C28}
+html.light-theme .premium-editorial-hero .hero-accent-line{background:#A67C28}
+
+#hero .gold-text-gradient{background:linear-gradient(120deg,#A67C28,#D6B56A,#8C681F);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* =====================================================
+   12. HERO IMAGE
+===================================================== */
+
+.hero-editorial-image{clip-path:ellipse(76% 82% at 100% 50%);transform:translateZ(0);transition:transform 900ms cubic-bezier(.16,1,.3,1),clip-path 900ms cubic-bezier(.16,1,.3,1)}
+.hero-image{transform:scale(1.02);filter:saturate(.92) contrast(.98);transition:transform 1200ms cubic-bezier(.16,1,.3,1),filter 900ms ease}
+#hero:hover .hero-image{transform:scale(1.055);filter:saturate(1) contrast(1.01)}
+
+/* =====================================================
+   13. HERO TEXT SLIDER
+===================================================== */
+
+.hero-text-slider{position:relative}
+.hero-text-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateX(45px);transition:opacity 900ms cubic-bezier(.16,1,.3,1),transform 1100ms cubic-bezier(.16,1,.3,1),visibility 900ms ease}
+.hero-text-slide.active{opacity:1;visibility:visible;transform:translateX(0)}
+.hero-text-slide.leaving{opacity:0;transform:translateX(-45px)}
+.hero-text-slide h3{opacity:0;transform:translateY(25px);transition:opacity 900ms ease 150ms,transform 900ms cubic-bezier(.16,1,.3,1) 150ms}
+.hero-text-slide.active h3{opacity:1;transform:translateY(0)}
+
+/* =====================================================
+   14. REVEAL / HOVER ANIMATIONS
+===================================================== */
+
+.reveal{opacity:1;transform:translateY(0);transition:opacity 900ms cubic-bezier(.16,1,.3,1),transform 900ms cubic-bezier(.16,1,.3,1)}
+.reveal.reveal-hidden{opacity:0;transform:translateY(30px)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.premium-hover{transition:box-shadow 700ms cubic-bezier(.22,1,.36,1),border-color 700ms cubic-bezier(.22,1,.36,1),background-color 700ms cubic-bezier(.22,1,.36,1)}
+.premium-hover:hover{animation:premiumFloat .9s ease-in-out infinite}
+
+@keyframes premiumFloat{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-5px)}
+}
+
+/* =====================================================
+   15. FLOATING APP DOCK
+===================================================== */
+
+#floatingAppDock{position:fixed;left:20px;bottom:20px;z-index:90;display:flex;flex-direction:row;align-items:center;gap:8px;width:max-content;padding:8px 10px;border-radius:999px;background:linear-gradient(135deg,rgba(7,26,18,.96),rgba(11,36,27,.92));border:1px solid rgba(214,181,106,.38);box-shadow:0 18px 55px rgba(0,0,0,.28),0 4px 18px rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:transform 400ms cubic-bezier(.16,1,.3,1),background-color 400ms ease,border-color 400ms ease,box-shadow 400ms ease}
+#floatingAppDock:hover{transform:translateY(-4px);border-color:rgba(214,181,106,.6);box-shadow:0 22px 65px rgba(0,0,0,.34),0 0 30px rgba(214,181,106,.08),inset 0 1px 0 rgba(255,255,255,.1)}
+
+/* =====================================================
+   16. LIGHT THEME OVERRIDES
+===================================================== */
+
+html.light-theme .text-white{color:#050706!important}
+html.light-theme .text-white\/90{color:rgba(5,7,6,.9)!important}
+html.light-theme .text-white\/80{color:rgba(5,7,6,.8)!important}
+html.light-theme .text-white\/75{color:rgba(5,7,6,.75)!important}
+html.light-theme .text-white\/70{color:rgba(5,7,6,.7)!important}
+html.light-theme .text-white\/60{color:rgba(5,7,6,.6)!important}
+html.light-theme .text-white\/50{color:rgba(5,7,6,.5)!important}
+
+html.light-theme .bg-\[\#0B241B\]{background-color:#F7F8F6!important}
+html.light-theme .bg-\[\#10382A\]{background-color:#F2F5F2!important}
+html.light-theme .bg-\[\#071A12\]{background-color:#EAF0ED!important}
+
+html.light-theme .glass-luxury{background:rgba(255,255,255,.82);border-color:rgba(166,124,40,.2);box-shadow:0 20px 60px rgba(11,36,27,.08)}
+html.light-theme .glass-card{background:rgba(255,255,255,.82);border-color:rgba(11,36,27,.1);color:#0B241B}
+html.light-theme .glass-card:hover{background:rgba(255,255,255,.98);border-color:rgba(166,124,40,.4)}
+
+html.light-theme .text-\[\#D6B56A\]{color:#8C681F!important}
+html.light-theme .text-\[\#F1E4C3\]{color:#163C42!important}
+
+html.light-theme .border-white\/10{border-color:rgba(5,7,6,.12)!important}
+html.light-theme .border-white\/20{border-color:rgba(5,7,6,.18)!important}
+html.light-theme .border-white\/30{border-color:rgba(5,7,6,.25)!important}
+
+/* =====================================================
+   17. LIGHT THEME FOOTER
+===================================================== */
+
+html.light-theme #siteFooter{background:#F8F7F2!important;color:#26352D!important;border-top-color:rgba(166,124,40,.25)!important}
+html.light-theme #siteFooter h2,html.light-theme #siteFooter h3,html.light-theme #siteFooter h4{color:#10291E!important}
+html.light-theme #siteFooter p{color:#59665E!important}
+html.light-theme #siteFooter .footer-link{color:#46564C!important}
+html.light-theme #siteFooter .footer-link:hover{color:#A67C28!important}
+
+/* =====================================================
+   18. ACCESSIBILITY
+===================================================== */
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* =====================================================
+   19. LARGE DESKTOP — 1280px+
+===================================================== */
+
+@media (min-width:1280px){
+.hero-editorial-image{clip-path:ellipse(77% 86% at 100% 50%)}
+}
+
+/* =====================================================
+   20. EXTRA LARGE DESKTOP — 1536px+
+===================================================== */
+
+@media (min-width:1536px){
+.hero-editorial-image{right:-16%;width:112%;height:94%;clip-path:ellipse(76% 88% at 100% 50%)}
+}
+
+/* =====================================================
+   21. TABLET — 1023px AND BELOW
+===================================================== */
+
+@media (max-width:1023px){
+#navbar{background:rgba(7,16,13,.98)}
+html.light-theme #navbar{background:rgba(249,250,250,.98)}
+.hero-editorial-image{position:relative;top:auto;right:auto;width:100%;height:620px;clip-path:ellipse(90% 82% at 50% 50%)}
+}
+
+/* =====================================================
+   22. MOBILE — 640px AND BELOW
+===================================================== */
+
+@media (max-width:640px){
+#hero{min-height:auto}
+.hero-editorial-image{width:115%;height:430px;right:-7%;clip-path:ellipse(90% 78% at 50% 50%)}
+#hero h1{font-size:3.35rem;line-height:.98;letter-spacing:-.04em}
+.hero-text-slider{min-height:340px}
+.hero-text-slide{transform:translateX(30px)}
+.hero-text-slide.leaving{transform:translateX(-30px)}
+#floatingAppDock{right:12px;bottom:12px;gap:6px;padding:7px 8px;max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none}
+#floatingAppDock::-webkit-scrollbar{display:none}
+}
+
+/* =====================================================
+   23. REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+.hero-editorial-image,.hero-image{transition:none}
+}
+
+</style>
+
+  <!-- Font Awesome brand icons for the floating app dock -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+
+<body
+  class="bg-[#0B241B] text-[#FAF8F2] antialiased"
+>
+
+<!-- =========================================================
+     PREMIUM LINEAR NAVIGATION
+========================================================= -->
+
+<header
+    id="navbar"
+    class="fixed top-0 left-0 right-0 z-50
+           bg-transparent
+           transition-all duration-500"
+>
+
+    <div class="w-full px-8 lg:px-12">
+
+        <nav
+            class="flex h-[88px] items-center
+                   border-b border-white/10"
+        >
+
+            <!-- =================================================
+                 LOGO
+            ================================================= -->
+
+            <a
+                href="index.html"
+                class="group flex items-center gap-3 shrink-0"
+            >
+
+                <div
+                    class="flex h-10 w-10 items-center justify-center
+                           overflow-hidden
+                           border border-[#D6B56A]/50
+                           bg-[#0B241B]
+                           transition-all duration-300
+                           group-hover:border-[#D6B56A]"
+                >
+
+                    <img
+                        src="../IMAGES/logo.png"
+                        alt="Noah's Ark logo"
+                        class="h-full w-full object-contain p-1"
+                    />
+
+                </div>
+
+                <div class="hidden sm:block">
+
+                    <div
+                        class="font-bold
+                               text-[10px]
+                               tracking-[0.24em]
+                               text-white/90"
+                    >
+                        NOAH’S ARK
+                    </div>
+
+                    <div
+                        class="font-semibold
+                               text-[9px]
+                               tracking-[0.20em]
+                               text-[#D6B56A]"
+                    >
+                        INTERNATIONAL SCHOOL
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- =================================================
+                 DESKTOP NAVIGATION
+            ================================================= -->
+
+            <div
+                class="ml-auto hidden items-center lg:flex"
+            >
+
+                <a
+                    href="index.html"
+                    class="premium-nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="programs.html"
+                    class="premium-nav-link"
+                >
+                    Programs
+                </a>
+
+                <a
+                    href="experience.html"
+                    class="premium-nav-link"
+                >
+                    Experience
+                </a>
+
+                <a
+                    href="partnership.html"
+                    class="premium-nav-link"
+                >
+                    Partnerships
+                </a>
+
+                <a
+                    href="#campus"
+                    class="premium-nav-link"
+                >
+                    Campus
+                </a>
+
+                <a
+                    href="#faq"
+                    class="premium-nav-link"
+                >
+                    FAQ
+                </a>
+
+                <a
+                    href="apply.html"
+                    class="premium-nav-link premium-nav-apply"
+                >
+                    Apply Now
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 THEME TOGGLE
+            ================================================= -->
+
+            <button
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle light mode"
+                title="Switch theme"
+                class="ml-6 flex h-9 w-9 shrink-0
+                       items-center justify-center
+                       rounded-full
+                       border border-[#D6B56A]/30
+                       bg-[#10382A]/60
+                       text-[#D6B56A]
+                       transition-all duration-300
+                       hover:border-[#D6B56A]
+                       hover:bg-[#164A36]
+                       hover:scale-105"
+            >
+
+                <!-- SUN -->
+
+                <svg
+                    id="sunIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="h-4 w-4"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 3v2m0 14v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M3 12h2m14 0h2M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                    />
+                </svg>
+
+                <!-- MOON -->
+
+                <svg
+                    id="moonIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="hidden h-4 w-4"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3
+                           7 7 0 0021 12.79z"
+                    />
+                </svg>
+
+            </button>
+
+
+            <!-- =================================================
+                 MOBILE MENU BUTTON
+            ================================================= -->
+
+            <div class="ml-3 lg:hidden">
+
+                <button
+                    id="menuButton"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    class="flex h-9 w-9
+                           items-center justify-center
+                           border border-[#D6B56A]/30
+                           bg-transparent
+                           transition-all duration-300
+                           hover:border-[#D6B56A]"
+                >
+
+                    <div class="flex w-4 flex-col gap-1">
+
+                        <span
+                            class="menu-line block h-[1px] w-4
+                                   bg-[#D6B56A]
+                                   transition-all duration-300"
+                        ></span>
+
+                        <span
+                            class="menu-line block h-[1px] w-4
+                                   bg-[#D6B56A]
+                                   transition-all duration-300"
+                        ></span>
+
+                        <span
+                            class="menu-line block h-[1px] w-4
+                                   bg-[#D6B56A]
+                                   transition-all duration-300"
+                        ></span>
+
+                    </div>
+
+                </button>
+
+
+                <!-- MOBILE MENU -->
+
+                <div
+                    id="menuPanel"
+                    class="pointer-events-none
+                           absolute right-6 top-[76px]
+                           w-64
+                           translate-y-2
+                           border border-[#D6B56A]/20
+                           bg-[#07100d]/95
+                           opacity-0
+                           shadow-2xl
+                           backdrop-blur-xl
+                           transition-all duration-300"
+                >
+
+                    <div class="p-2">
+
+                        <a href="index.html" class="mobile-nav-link">
+                            Home
+                        </a>
+
+                        <a href="programs.html" class="mobile-nav-link">
+                            Programs
+                        </a>
+
+                        <a href="experience.html" class="mobile-nav-link">
+                            Experience
+                        </a>
+
+                        <a href="partnership.html" class="mobile-nav-link">
+                            Partnerships
+                        </a>
+
+                        <a href="#campus" class="mobile-nav-link">
+                            Campus
+                        </a>
+
+                        <a href="#faq" class="mobile-nav-link">
+                            FAQ
+                        </a>
+
+                        <a
+                            href="apply.html"
+                            class="mobile-nav-link text-[#D6B56A]"
+                        >
+                            Apply Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+<!-- =========================================================
+     PREMIUM EDITORIAL HERO
+========================================================= -->
+
+<section
+    id="hero"
+    class="premium-editorial-hero relative min-h-screen overflow-hidden"
+>
+
+    <!-- =====================================================
+         BACKGROUND DECORATIVE CIRCLES
+    ====================================================== -->
+
+    <!-- Large left atmospheric circle -->
+    <div
+        class="hero-circle hero-circle-left
+               absolute
+               -left-[22rem]
+               top-[-8rem]
+               w-[58rem]
+               h-[58rem]
+               rounded-full
+               pointer-events-none"
+    ></div>
+
+
+    <!-- Upper center circle -->
+    <div
+        class="hero-circle hero-circle-center
+               absolute
+               left-[40%]
+               -top-[20rem]
+               w-[48rem]
+               h-[48rem]
+               rounded-full
+               border-[8rem]
+               pointer-events-none"
+    ></div>
+
+
+    <!-- Lower right atmospheric circle -->
+    <div
+        class="hero-circle hero-circle-right
+               absolute
+               right-[-12rem]
+               bottom-[-15rem]
+               w-[35rem]
+               h-[35rem]
+               rounded-full
+               pointer-events-none"
+    ></div>
+
+
+    <!-- =====================================================
+         HERO INNER CONTAINER
+    ====================================================== -->
+
+    <div
+        class="relative z-10
+               max-w-[1600px]
+               mx-auto
+               min-h-screen
+               px-6
+               sm:px-10
+               lg:px-16
+               pt-32
+               lg:pt-36
+               pb-16
+               flex
+               items-center"
+    >
+
+        <div
+            class="grid
+                   grid-cols-1
+                   lg:grid-cols-[0.92fr_1.08fr]
+                   gap-12
+                   lg:gap-8
+                   items-center
+                   w-full"
+        >
+
+
+            <!-- =================================================
+                 LEFT — EDITORIAL CONTENT
+            ================================================== -->
+
+            <div
+                class="relative z-20
+                       max-w-3xl
+                       lg:pl-8
+                       xl:pl-16"
+            >
+
+                <!-- =================================================
+                     EDITORIAL LOCATION
+                ================================================== -->
+
+                <div
+                    class="flex
+                           items-center
+                           gap-4
+                           mb-7
+                           reveal"
+                >
+
+                    <span
+                        class="hero-accent-line
+                               w-10
+                               h-px"
+                    ></span>
+
+                    <span
+                        class="hero-accent
+                               text-xs
+                               uppercase
+                               tracking-[0.32em]
+                               font-bold"
+                    >
+                        Kigali, Rwanda
+                    </span>
+
+                </div>
+
+
+                <!-- =================================================
+                     HERO TEXT SLIDER
+                ================================================== -->
+
+                <div
+                    id="heroTextSlider"
+                    class="hero-text-slider
+                           relative
+                           overflow-hidden
+                           min-h-[310px]
+                           sm:min-h-[370px]
+                           md:min-h-[420px]
+                           lg:min-h-[455px]"
+                >
+
+
+                    <!-- =================================================
+                         SLIDE 01
+                    ================================================== -->
+
+                    <div
+                        class="hero-text-slide active"
+                        data-slide="0"
+                    >
+
+                        <h1
+                            class="hero-heading
+                                   serif
+                                   text-[3.5rem]
+                                   sm:text-[4.5rem]
+                                   md:text-[5.3rem]
+                                   lg:text-[4.7rem]
+                                   xl:text-[6.5rem]
+                                   leading-[0.80]
+                                   tracking-[-0.045em]
+                                   font-medium"
+                        >
+
+                            Where African
+
+                            <span
+                                class="block
+                                       italic
+                                       hero-slide-accent
+                                       hero-color-green"
+                            >
+                                identity
+                            </span>
+
+                            meets global
+
+                            <span class="block">
+                                hospitality.
+                            </span>
+
+                        </h1>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SLIDE 02
+                    ================================================== -->
+
+                    <div
+                        class="hero-text-slide"
+                        data-slide="1"
+                    >
+
+                        <h1
+                            class="hero-heading
+                                   serif
+                                   text-[3.5rem]
+                                   sm:text-[4.5rem]
+                                   md:text-[5.3rem]
+                                   lg:text-[4.7rem]
+                                   xl:text-[6.5rem]
+                                   leading-[0.80]
+                                   tracking-[-0.045em]
+                                   font-medium"
+                        >
+
+                            Where tradition
+
+                            <span
+                                class="block
+                                       italic
+                                       hero-slide-accent
+                                       hero-color-gold"
+                            >
+                                becomes
+                            </span>
+
+                            exceptional
+
+                            <span class="block">
+                                service.
+                            </span>
+
+                        </h1>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SLIDE 03
+                    ================================================== -->
+
+                    <div
+                        class="hero-text-slide"
+                        data-slide="2"
+                    >
+
+                        <h1
+                            class="hero-heading
+                                   serif
+                                   text-[3.5rem]
+                                   sm:text-[4.5rem]
+                                   md:text-[5.3rem]
+                                   lg:text-[4.7rem]
+                                   xl:text-[6.5rem]
+                                   leading-[0.80]
+                                   tracking-[-0.045em]
+                                   font-medium"
+                        >
+
+                            Where ambition
+
+                            <span
+                                class="block
+                                       italic
+                                       hero-slide-accent
+                                       hero-color-emerald"
+                            >
+                                becomes
+                            </span>
+
+                            a global
+
+                            <span class="block">
+                                career.
+                            </span>
+
+                        </h1>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SLIDE 04
+                    ================================================== -->
+
+                    <div
+                        class="hero-text-slide"
+                        data-slide="3"
+                    >
+
+                        <h1
+                            class="hero-heading
+                                   serif
+                                   text-[3.5rem]
+                                   sm:text-[4.5rem]
+                                   md:text-[5.3rem]
+                                   lg:text-[4.7rem]
+                                   xl:text-[6.5rem]
+                                   leading-[0.80]
+                                   tracking-[-0.045em]
+                                   font-medium"
+                        >
+
+                            Where African
+
+                            <span
+                                class="block
+                                       italic
+                                       hero-slide-accent
+                                       hero-color-gold"
+                            >
+                                excellence
+                            </span>
+
+                            shapes
+
+                            <span class="block">
+                                tomorrow.
+                            </span>
+
+                        </h1>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SLIDE 05
+                    ================================================== -->
+
+                    <div
+                        class="hero-text-slide"
+                        data-slide="4"
+                    >
+
+                        <h1
+                            class="hero-heading
+                                   serif
+                                   text-[3.5rem]
+                                   sm:text-[4.5rem]
+                                   md:text-[5.3rem]
+                                   lg:text-[4.7rem]
+                                   xl:text-[6.5rem]
+                                   leading-[0.80]
+                                   tracking-[-0.045em]
+                                   font-medium"
+                        >
+
+                            Where character
+
+                            <span
+                                class="block
+                                       italic
+                                       hero-slide-accent
+                                       hero-color-emerald"
+                            >
+                                meets
+                            </span>
+
+                            world-class
+
+                            <span class="block">
+                                standards.
+                            </span>
+
+                        </h1>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SLIDE INDICATOR
+                    ================================================== -->
+
+                    <div
+                        class="absolute
+                               left-0
+                               bottom-0
+                               flex
+                               items-center
+                               gap-3
+                               z-20"
+                    >
+
+                        <span
+                            id="heroSlideNumber"
+                            class="font-serif
+                                   text-sm
+                                   hero-accent"
+                        >
+                            01
+                        </span>
+
+                        <span
+                            class="w-10
+                                   h-px
+                                   hero-indicator-line"
+                        ></span>
+
+                        <span
+                            class="text-[10px]
+                                   uppercase
+                                   tracking-[0.25em]
+                                   hero-slide-label"
+                        >
+                            Our philosophy
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ACTIONS
+                ================================================== -->
+
+                <div
+                    class="flex
+                           flex-col
+                           sm:flex-row
+                           items-start
+                           sm:items-center
+                           gap-4
+                           mt-9
+                           reveal"
+                >
+
+                    <!-- Primary -->
+                    <a
+                        href="apply.html"
+                        class="group
+                               inline-flex
+                               items-center
+                               gap-4
+                               px-7
+                               py-4
+                               hero-primary-btn
+                               text-sm
+                               font-semibold
+                               tracking-wide
+                               border
+                               transition-all
+                               duration-500
+                               hover:-translate-y-1"
+                    >
+
+                        <span>
+                            Begin Your Journey
+                        </span>
+
+                        <svg
+                            class="w-4 h-4
+                                   transition-transform
+                                   duration-500
+                                   group-hover:translate-x-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.8"
+                                d="M5 12h14m-6-6 6 6-6 6"
+                            />
+
+                        </svg>
+
+                    </a>
+
+
+                    <!-- Secondary -->
+                    <a
+                        href="#about"
+                        class="hero-secondary-btn
+                               inline-flex
+                               items-center
+                               gap-3
+                               px-7
+                               py-4
+                               border
+                               text-sm
+                               font-semibold
+                               tracking-wide
+                               transition-all
+                               duration-500"
+                    >
+                        Discover Our Institution
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     SMALL STATEMENT / METRICS
+                ================================================== -->
+
+                <div
+                    class="mt-8
+                           pt-6
+                           border-t
+                           hero-stats-border
+                           max-w-xl
+                           reveal"
+                >
+
+                    <div
+                        class="flex
+                               flex-wrap
+                               items-center
+                               gap-x-8
+                               gap-y-3"
+                    >
+
+                        <!-- STAT 01 -->
+
+                        <div>
+
+                            <div
+                                class="serif
+                                       text-2xl
+                                       hero-stat-number"
+                            >
+                                25+
+                            </div>
+
+                            <div
+                                class="mt-1
+                                       text-[10px]
+                                       uppercase
+                                       tracking-[0.18em]
+                                       hero-stat-label"
+                            >
+                                Global Partners
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="w-px
+                                   h-10
+                                   hero-stat-divider"
+                        ></div>
+
+
+                        <!-- STAT 02 -->
+
+                        <div>
+
+                            <div
+                                class="serif
+                                       text-2xl
+                                       hero-stat-number"
+                            >
+                                1,400+
+                            </div>
+
+                            <div
+                                class="mt-1
+                                       text-[10px]
+                                       uppercase
+                                       tracking-[0.18em]
+                                       hero-stat-label"
+                            >
+                                Alumni Network
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="w-px
+                                   h-10
+                                   hero-stat-divider"
+                        ></div>
+
+
+                        <!-- STAT 03 -->
+
+                        <div>
+
+                            <div
+                                class="serif
+                                       text-2xl
+                                       hero-stat-number"
+                            >
+                                14
+                            </div>
+
+                            <div
+                                class="mt-1
+                                       text-[10px]
+                                       uppercase
+                                       tracking-[0.18em]
+                                       hero-stat-label"
+                            >
+                                Nationalities
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+<!-- =================================================
+     RIGHT — EDITORIAL IMAGE
+================================================= -->
+
+<div
+    class="relative
+           min-h-[480px]
+           sm:min-h-[560px]
+           lg:min-h-[680px]
+           xl:min-h-[740px]
+           w-full
+           -translate-y-6
+           lg:-translate-y-10"
+>
+
+                <!-- =================================================
+                     IMAGE
+                ================================================== -->
+
+                <div
+                    class="hero-editorial-image
+                           absolute
+                           top-[2%]
+                           right-[-0.1%]
+                           w-[120%]
+                           h-[90%]
+                           overflow-hidden"
+                >
+
+                    <img
+                        src="../IMAGES/2.png"
+                        alt="Hospitality education and luxury service"
+                        class="w-full
+                               h-full
+                               object-cover
+                               object-center
+                               hero-image"
+                    />
+
+                    <!-- Image treatment -->
+                    <div
+                        class="absolute
+                               inset-0
+                               hero-image-overlay
+                               pointer-events-none"
+                    ></div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FLOATING LABEL
+                ================================================== -->
+
+                <div
+                    class="absolute
+                           left-[5%]
+                           bottom-[8%]
+                           z-20
+                           hidden
+                           sm:flex
+                           items-center
+                           gap-4
+                           px-5
+                           py-4
+                           hero-floating-label
+                           backdrop-blur-xl
+                           border
+                           shadow-[0_20px_60px_rgba(11,36,27,0.12)]
+                           reveal"
+                >
+
+                    <span
+                        class="w-2
+                               h-2
+                               rounded-full
+                               hero-floating-dot"
+                    ></span>
+
+                    <div>
+
+                        <div
+                            class="text-[10px]
+                                   uppercase
+                                   tracking-[0.2em]
+                                   font-bold
+                                   hero-floating-title"
+                        >
+                            Global Standard
+                        </div>
+
+                        <div
+                            class="text-sm
+                                   font-semibold
+                                   hero-floating-text"
+                        >
+                            Rooted in Rwanda
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- =====================================================
+             ONE SECTION — LEFT SLIDER + RIGHT CONTENT
+        ====================================================== -->
+
+<div
+    class="grid
+    grid-cols-1
+    lg:grid-cols-[1.05fr_0.95fr]
+    gap-12
+    lg:gap-16
+    xl:gap-20
+    items-center"
+>
+
+
+            <!-- =================================================
+                 LEFT SIDE — IMAGE SLIDER
+            ================================================== -->
+
+            <div class="relative reveal w-full">
+
+                <!-- Main Slider -->
+<div
+    id="aboutSlider"
+    class="relative z-10
+    h-[700px]
+    w-full
+    overflow-hidden
+    rounded-none
+    border border-[#D6B56A]/30
+    shadow-2xl
+    group"
+>
+
+<!-- Slider Track -->
+<div
+    id="aboutSliderTrack"
+    class="
+        flex
+        h-full
+        transition-transform
+        duration-400
+        ease-out
+        will-change-transform
+    "
+>
+                        <!-- Slide 1 -->
+                        <img
+                            src="../IMAGES/1.png"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 2 -->
+                        <img
+                            src="../IMAGES/2.png"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 3 -->
+                        <img
+                            src="../IMAGES/3.png"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 4 -->
+                        <img
+                            src="../IMAGES/4.jpg"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 5 -->
+                        <img
+                            src="../IMAGES/5.jpg"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 6 -->
+                        <img
+                            src="../IMAGES/6.png"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 7 -->
+                        <img
+                            src="../IMAGES/7.jpeg"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 8 -->
+                        <img
+                            src="../IMAGES/8.png"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 9 -->
+                        <img
+                            src="../IMAGES/9.png"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                        <!-- Slide 10 -->
+                        <img
+                            src="../IMAGES/logo.png"
+                            class="h-full min-w-full
+                            flex-shrink-0
+                            object-cover"
+                            alt="Hospitality Students"
+                        >
+
+                    </div>
+
+
+                    <!-- Dark Luxury Overlay -->
+                    <div
+                        class="absolute inset-0
+                        bg-gradient-to-t
+                        from-black/50
+                        via-transparent
+                        to-black/10
+                        pointer-events-none"
+                    ></div>
+
+
+                    <!-- =================================================
+                         SLIDER DOTS
+                    ================================================== -->
+
+                    <div
+                        id="aboutSliderDots"
+                        class="absolute bottom-6
+                        left-1/2
+                        -translate-x-1/2
+                        flex items-center gap-2
+                        px-4 py-2
+                        rounded-full
+                        bg-black/30
+                        backdrop-blur-md
+                        border border-white/10"
+                    >
+                    </div>
+
+
+                    <!-- =================================================
+                         IMAGE COUNTER
+                    ================================================== -->
+
+                    <div
+                        class="absolute top-5 right-5
+                        px-3 py-1.5
+                        rounded-full
+                        bg-black/40
+                        backdrop-blur-md
+                        border border-white/10
+                        text-white text-xs
+                        tracking-widest"
+                    >
+                        <span id="aboutCurrentSlide">01</span>
+
+                        <span class="text-white/40">
+                            /
+                        </span>
+
+                        <span id="aboutTotalSlides">10</span>
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     EXCELLENCE CARD
+                ================================================== -->
+
+                <div
+                    class="absolute
+                    -bottom-8
+                    -right-4 sm:-right-8
+                    z-20
+                    bg-[#10382A]/90
+                    backdrop-blur-xl
+                    p-7 sm:p-8
+                    rounded-2xl
+                    max-w-xs
+                    border border-[#D6B56A]/30
+                    shadow-2xl"
+                >
+
+                    <div class="flex items-start gap-4">
+
+                        <!-- Icon -->
+                        <div
+                            class="w-12 h-12
+                            rounded-xl
+                            bg-[#D6B56A]/10
+                            border border-[#D6B56A]/40
+                            flex items-center justify-center
+                            shrink-0"
+                        >
+
+                            <i
+                                data-lucide="award"
+                                class="w-6 h-6 text-[#D6B56A]"
+                            ></i>
+
+                        </div>
+
+
+                        <!-- Text -->
+                        <div>
+
+                            <div
+                                class="text-[#D6B56A]
+                                text-xs
+                                uppercase
+                                tracking-widest
+                                font-bold"
+                            >
+                                Excellence Standard
+                            </div>
+
+                            <div
+                                class="serif
+                                text-lg
+                                mt-1
+                                text-white"
+                            >
+                                Rooted in Rwanda,
+                                serving the world stage.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 RIGHT SIDE — EDITORIAL COPY
+            ====================================================== -->
+
+            <div class="reveal">
+
+                <!-- Section Label -->
+                <div
+                    class="inline-flex
+                    items-center
+                    gap-3
+                    mb-6"
+                >
+
+                    <span
+                        class="w-10 h-px
+                        bg-[#D4AF37]"
+                    ></span>
+
+                    <span
+                        class="text-[#D4AF37]
+                        text-xs
+                        uppercase
+                        tracking-[0.35em]
+                        font-bold"
+                    >
+                        About the Institution
+                    </span>
+
+                </div>
+
+
+                <!-- Main Heading -->
+                <h2
+                    class="serif
+                    text-4xl
+                    md:text-5xl
+                    lg:text-6xl
+                    leading-[1.08]
+                    text-[#FBF9F5]"
+                >
+
+                    Shaping the future of
+
+                    <span
+                        class="gold-text-gradient italic"
+                    >
+                        African hospitality.
+                    </span>
+
+                </h2>
+
+
+                <!-- Introduction -->
+                <p
+                    class="mt-8
+                    text-white/80
+                    leading-relaxed
+                    text-lg
+                    max-w-2xl"
+                >
+                    The Rwanda School of Hospitality is dedicated
+                    to developing the next generation of hospitality
+                    professionals through excellence, discipline,
+                    practical training, and genuine African warmth.
+                </p>
+
+
+                <!-- Second Paragraph -->
+                <p
+                    class="mt-5
+                    text-white/60
+                    leading-relaxed
+                    max-w-2xl"
+                >
+                    From the classroom to real-world service
+                    environments, our students develop the technical
+                    expertise, confidence, character, and leadership
+                    skills required to succeed in Rwanda and on the
+                    international hospitality stage.
+                </p>
+
+
+                <!-- =================================================
+                     FEATURE PILLARS
+                ================================================== -->
+
+                <div
+                    class="grid
+                    sm:grid-cols-2
+                    gap-8
+                    mt-10
+                    pt-8
+                    border-t border-white/10"
+                >
+
+                    <!-- Pillar 01 -->
+                    <div class="group">
+
+                        <div
+                            class="serif
+                            text-2xl
+                            text-[#D4AF37]
+                            mb-2"
+                        >
+                            01
+                        </div>
+
+                        <h3
+                            class="font-semibold
+                            text-white
+                            text-base"
+                        >
+                            Excellence Through Practice
+                        </h3>
+
+                        <p
+                            class="text-sm
+                            text-white/55
+                            leading-relaxed
+                            mt-2"
+                        >
+                            Practical learning designed to build
+                            confidence, precision, discipline, and
+                            professional excellence.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Pillar 02 -->
+                    <div class="group">
+
+                        <div
+                            class="serif
+                            text-2xl
+                            text-[#D4AF37]
+                            mb-2"
+                        >
+                            02
+                        </div>
+
+                        <h3
+                            class="font-semibold
+                            text-white
+                            text-base"
+                        >
+                            African Roots, Global Standards
+                        </h3>
+
+                        <p
+                            class="text-sm
+                            text-white/55
+                            leading-relaxed
+                            mt-2"
+                        >
+                            Celebrating Rwanda's culture and warmth
+                            while preparing students for a world of
+                            international hospitality.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CLOSING STATEMENT
+                ================================================== -->
+
+                <div
+                    class="mt-8
+                    flex items-center gap-4"
+                >
+
+                    <div
+                        class="w-10 h-10
+                        rounded-full
+                        border border-[#D4AF37]/30
+                        flex items-center justify-center"
+                    >
+
+                        <i
+                            data-lucide="sparkles"
+                            class="w-4 h-4 text-[#D4AF37]"
+                        ></i>
+
+                    </div>
+
+
+                    <p
+                        class="text-sm
+                        text-white/60
+                        italic"
+                    >
+                        Where African hospitality meets
+                        international excellence.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     ADMISSIONS CTA — PREMIUM IMAGE BACKGROUND
+========================================================= -->
+
+<section
+    id="apply"
+    class="relative
+           py-28
+           md:py-36
+           overflow-hidden
+           text-white"
+>
+
+<!-- =====================================================
+     FULL-BLEED BACKGROUND IMAGE
+     CLEAR + TRANSPARENT
+====================================================== -->
+
+<div class="absolute inset-0 z-0">
+
+    <img
+        src="../IMAGES/11.png"
+        alt=""
+        aria-hidden="true"
+        class="absolute
+               inset-0
+               w-full
+               h-full
+               object-cover
+               object-center
+               scale-[1.02]"
+    />
+
+    <!-- VERY LIGHT GLASS / READABILITY LAYER -->
+    <div
+        class="absolute
+               inset-0
+               bg-white/[0.04]
+               backdrop-blur-[1px]
+               pointer-events-none"
+    ></div>
+
+</div>
+
+    <!-- =====================================================
+         SOFT DECORATIVE GLOW
+    ====================================================== -->
+
+    <div
+        class="absolute
+               -top-40
+               -right-40
+               z-[3]
+               w-[30rem]
+               h-[30rem]
+               rounded-full
+               bg-[#D6B56A]/15
+               blur-3xl
+               pointer-events-none"
+    ></div>
+
+
+    <div
+        class="absolute
+               -bottom-48
+               -left-48
+               z-[3]
+               w-[32rem]
+               h-[32rem]
+               rounded-full
+               bg-[#164A36]/40
+               blur-3xl
+               pointer-events-none"
+    ></div>
+
+
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
+
+    <div
+        class="relative
+               z-10
+               max-w-5xl
+               mx-auto
+               px-6
+               text-center"
+    >
+
+        <!-- =================================================
+             EYEBROW
+        ================================================== -->
+
+        <div
+            class="inline-flex
+                   items-center
+                   gap-3
+                   text-xs
+                   font-bold
+                   uppercase
+                   tracking-[0.25em]
+                   text-[#F1E4C3]
+                   mb-7
+                   reveal"
+        >
+
+            <span
+                class="w-8
+                       h-px
+                       bg-[#D6B56A]"
+            ></span>
+
+            <span>
+                Admissions 2026 Are Open
+            </span>
+
+            <span
+                class="w-8
+                       h-px
+                       bg-[#D6B56A]"
+            ></span>
+
+        </div>
+
+
+        <!-- =================================================
+             MAIN HEADING
+        ================================================== -->
+
+        <h2
+            class="serif
+                   text-5xl
+                   sm:text-6xl
+                   md:text-7xl
+                   lg:text-[5.5rem]
+                   leading-[0.95]
+                   tracking-[-0.04em]
+                   font-medium
+                   text-white
+                   reveal"
+        >
+
+            Your luxury hospitality
+
+            <br />
+
+            <span
+                class="italic
+                       font-normal
+                       text-[#D6B56A]"
+            >
+                journey starts here.
+            </span>
+
+        </h2>
+
+
+        <!-- =================================================
+             DESCRIPTION
+        ================================================== -->
+
+        <p
+            class="max-w-2xl
+                   mx-auto
+                   mt-7
+                   text-white/75
+                   text-base
+                   md:text-lg
+                   leading-relaxed
+                   reveal"
+        >
+            Take the definitive step toward an international
+            career built around people, leadership, and
+            operational distinction.
+        </p>
+
+
+        <!-- =================================================
+             ACTIONS
+        ================================================== -->
+
+        <div
+            class="flex
+                   flex-col
+                   sm:flex-row
+                   justify-center
+                   items-center
+                   gap-4
+                   mt-10
+                   reveal"
+        >
+
+            <!-- =============================================
+                 VIEW PROSPECTUS
+            ============================================== -->
+
+            <a
+                href="../ASSETS/Documents/School-Prospectus-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group
+                       premium-hover
+                       relative
+                       inline-flex
+                       items-center
+                       justify-center
+                       gap-3
+                       px-7
+                       py-4
+                       rounded-xl
+                       overflow-hidden
+                       bg-[#0B241B]
+                       text-white
+                       font-semibold
+                       text-sm
+                       tracking-wide
+                       border
+                       border-[#D6B56A]/40
+                       shadow-[0_12px_35px_rgba(0,0,0,0.28)]
+                       transition-all
+                       duration-500
+                       hover:border-[#D6B56A]
+                       hover:bg-[#10382A]"
+            >
+
+                <!-- Shine -->
+                <span
+                    class="premium-shine
+                           absolute
+                           inset-0
+                           bg-gradient-to-r
+                           from-transparent
+                           via-white/10
+                           to-transparent
+                           pointer-events-none"
+                ></span>
+
+
+                <!-- Icon -->
+                <svg
+                    class="relative
+                           w-5
+                           h-5
+                           text-[#D6B56A]
+                           transition-transform
+                           duration-700
+                           ease-out
+                           group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M15 12H3m0 0l4-4m-4 4l4 4
+                           M21 5v14a2 2 0 01-2 2H9
+                           a2 2 0 01-2-2v-1"
+                    />
+
+                </svg>
+
+
+                <span class="relative">
+                    View BABYEYI Prospectus
+                </span>
+
+            </a>
+
+
+            <!-- =============================================
+                 DOWNLOAD PROSPECTUS
+            ============================================== -->
+
+            <a
+                href="../ASSETS/Documents/School-Prospectus-2026.pdf"
+                download
+                class="group
+                       premium-hover
+                       relative
+                       inline-flex
+                       items-center
+                       justify-center
+                       gap-3
+                       px-7
+                       py-4
+                       rounded-xl
+                       overflow-hidden
+                       bg-[#D6B56A]
+                       text-[#0B241B]
+                       font-bold
+                       text-sm
+                       tracking-wide
+                       border
+                       border-[#F1E4C3]
+                       shadow-[0_12px_35px_rgba(214,181,106,0.22)]
+                       transition-all
+                       duration-500
+                       hover:bg-[#F1E4C3]"
+            >
+
+                <!-- Shine -->
+                <span
+                    class="premium-shine
+                           absolute
+                           inset-0
+                           bg-gradient-to-r
+                           from-transparent
+                           via-white/30
+                           to-transparent
+                           pointer-events-none"
+                ></span>
+
+
+                <!-- Download Icon -->
+                <svg
+                    class="relative
+                           w-5
+                           h-5
+                           transition-transform
+                           duration-700
+                           ease-out
+                           group-hover:translate-y-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M12 3v12m0 0l-4-4m4 4l4-4
+                           M5 21h14"
+                    />
+
+                </svg>
+
+
+                <span class="relative">
+                    Download BABYEYI
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             SMALL PREMIUM LINE
+        ================================================== -->
+
+        <div
+            class="mt-12
+                   flex
+                   items-center
+                   justify-center
+                   gap-4
+                   reveal"
+        >
+
+            <span
+                class="w-16
+                       h-px
+                       bg-[#D6B56A]/50"
+            ></span>
+
+            <span
+                class="text-[10px]
+                       uppercase
+                       tracking-[0.3em]
+                       text-white/50"
+            >
+                Kigali · Rwanda
+            </span>
+
+            <span
+                class="w-16
+                       h-px
+                       bg-[#D6B56A]/50"
+            ></span>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================================
+     NOAH'S ARK — PREMIUM LUXURY FOOTER
+     Dark Forest Green • Champagne Gold • Elegant Typography
+========================================================= -->
+
+<footer
+  id="siteFooter"
+  class="relative overflow-hidden bg-[#04120D] text-white/70 border-t border-[#D6B56A]/20"
+>
+
+  <!-- =======================================================
+       BACKGROUND DECORATION
+  ======================================================== -->
+
+  <div
+    aria-hidden="true"
+    class="absolute -top-40 -right-40 w-96 h-96 rounded-full
+           bg-[#D6B56A]/[0.035] blur-3xl pointer-events-none"
+  ></div>
+
+  <div
+    aria-hidden="true"
+    class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full
+           bg-[#1E6147]/20 blur-3xl pointer-events-none"
+  ></div>
+
+
+  <!-- =======================================================
+       MAIN FOOTER CONTENT
+  ======================================================== -->
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+
+    <!-- TOP BRAND STATEMENT -->
+
+    <div
+      class="py-10 md:py-12 border-b border-white/[0.08]
+             flex flex-col md:flex-row md:items-center
+             justify-between gap-6"
+    >
+
+      <div>
+
+        <span
+          class="inline-flex items-center gap-3
+                 text-[10px] uppercase tracking-[0.35em]
+                 text-[#D6B56A] font-semibold mb-4"
+        >
+
+          <span class="w-8 h-px bg-[#D6B56A]/70"></span>
+
+          The Art of Hospitality
+
+        </span>
+
+        <h2
+          class="serif text-2xl md:text-3xl lg:text-4xl
+                 text-white leading-tight tracking-wide"
+        >
+
+          Excellence Begins <br class="sm:hidden">
+
+          <span class="text-[#D6B56A] italic">
+            With Education.
+          </span>
+
+        </h2>
+
+      </div>
+
+
+      <!-- ADMISSIONS CTA -->
+
+      <div class="flex flex-col sm:flex-row gap-3">
+
+        <a
+          href="#contact"
+          class="group inline-flex items-center justify-center gap-3
+                 bg-gradient-to-r from-[#D6B56A] to-[#B9974F]
+                 text-[#04120D] px-6 py-3.5 rounded-xl
+                 text-[11px] font-bold uppercase tracking-[0.15em]
+                 shadow-lg shadow-black/20
+                 hover:brightness-110 hover:-translate-y-0.5
+                 active:translate-y-0
+                 transition-all duration-300"
+        >
+
+          Explore Admissions
+
+          <i
+            class="fa-solid fa-arrow-right text-xs
+                   group-hover:translate-x-1 transition-transform"
+          ></i>
+
+        </a>
+
+
+        <a
+          href="#campus"
+          class="inline-flex items-center justify-center gap-3
+                 border border-white/15 bg-white/[0.03]
+                 text-white/80 px-6 py-3.5 rounded-xl
+                 text-[11px] font-semibold uppercase tracking-[0.15em]
+                 hover:border-[#D6B56A]/50
+                 hover:text-[#D6B56A]
+                 hover:bg-[#D6B56A]/[0.04]
+                 transition-all duration-300"
+        >
+
+          Discover Our Campus
+
+        </a>
+
+      </div>
+
+    </div>
+     
+<!-- =========================================================
+     MAIN FOOTER GRID
+========================================================= -->
+
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12
+         gap-10 lg:gap-8 py-14 lg:py-16"
+>
+
+  <!-- =======================================================
+       BRAND & NEWSLETTER
+  ======================================================== -->
+
+  <div class="sm:col-span-2 lg:col-span-5 lg:pr-10">
+
+    <!-- SCHOOL BRAND -->
+
+    <a
+      href="#home"
+      aria-label="Noah's Ark International School homepage"
+      class="inline-flex items-center gap-4 group mb-7"
+    >
+
+      <div
+        class="w-14 h-14 shrink-0 rounded-2xl
+               border border-[#D6B56A]/35
+               bg-[#D6B56A]/10
+               flex items-center justify-center"
+      >
+
+        <i
+          class="fa-solid fa-crown text-[#D6B56A] text-xl"
+          aria-hidden="true"
+        ></i>
+
+      </div>
+
+      <div>
+
+        <h3
+          class="serif text-white text-xl md:text-2xl
+                 font-bold tracking-wide
+                 group-hover:text-[#D6B56A]
+                 transition-colors"
+        >
+          Noah's Ark International
+        </h3>
+
+        <p
+          class="text-[10px] uppercase tracking-[0.24em]
+                 text-[#D6B56A] mt-1.5"
+        >
+          School of Hospitality & Tourism
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- BRAND DESCRIPTION -->
+
+    <p
+      class="text-[13px] leading-7 text-white/55
+             font-light max-w-md mb-7"
+    >
+      Shaping the next generation of hospitality professionals
+      through practical excellence, international standards,
+      professional discipline, and a commitment to exceptional
+      service in Kigali and Nyagatare, Rwanda.
+    </p>
+
+
+    <!-- BRAND VALUES -->
+
+    <div class="flex flex-wrap gap-2.5 mb-9">
+
+      <span
+        class="inline-flex items-center gap-2 px-3 py-2
+               rounded-lg bg-white/[0.035]
+               border border-white/[0.08]
+               text-[10px] text-white/65"
+      >
+
+        <i class="fa-solid fa-graduation-cap text-[#D6B56A]"></i>
+
+        Professional Education
+
+      </span>
+
+
+      <span
+        class="inline-flex items-center gap-2 px-3 py-2
+               rounded-lg bg-white/[0.035]
+               border border-white/[0.08]
+               text-[10px] text-white/65"
+      >
+
+        <i class="fa-solid fa-star text-[#D6B56A]"></i>
+
+        Hospitality Excellence
+
+      </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         NEWSLETTER
+    ====================================================== -->
+
+    <div
+      class="relative overflow-hidden rounded-2xl
+             border border-[#D6B56A]/20
+             bg-gradient-to-br from-[#0B241B] to-[#061810]
+             p-5 sm:p-6"
+    >
+
+      <!-- Decorative glow -->
+
+      <div
+        aria-hidden="true"
+        class="absolute top-0 right-0 w-24 h-24
+               bg-[#D6B56A]/[0.04] blur-2xl rounded-full"
+      ></div>
+
+
+      <div class="relative">
+
+        <!-- Newsletter heading -->
+
+        <div class="flex items-center gap-3 mb-3">
+
+          <div
+            class="w-10 h-10 shrink-0 rounded-xl
+                   bg-[#D6B56A]/10
+                   border border-[#D6B56A]/20
+                   flex items-center justify-center"
+          >
+
+            <i
+              class="fa-regular fa-envelope text-[#D6B56A]"
+              aria-hidden="true"
+            ></i>
+
+          </div>
+
+
+          <div>
+
+            <h4
+              class="text-white text-sm
+                     font-semibold tracking-wide"
+            >
+              Stay Connected
+            </h4>
+
+            <p
+              class="text-[10px] uppercase
+                     tracking-[0.16em]
+                     text-[#D6B56A]/75 mt-1"
+            >
+              The Noah's Ark Newsletter
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Newsletter description -->
+
+        <p
+          class="text-[12px] leading-6
+                 text-white/50 font-light mb-5"
+        >
+          Receive school announcements, academic updates,
+          admissions information, and inspiring hospitality insights.
+        </p>
+
+
+        <!-- Newsletter form -->
+
+        <form
+          id="footerNewsletterForm"
+          class="flex flex-col sm:flex-row gap-2.5"
+        >
+
+          <label
+            for="footerNewsletterEmail"
+            class="sr-only"
+          >
+            Email address
+          </label>
+
+
+          <input
+            id="footerNewsletterEmail"
+            name="email"
+            type="email"
+            placeholder="Your email address"
+            autocomplete="email"
+            required
+            class="flex-1 min-w-0 w-full
+                   bg-[#04120D]/80
+                   border border-white/10
+                   rounded-xl px-4 py-3.5
+                   text-xs text-white
+                   placeholder:text-white/30
+                   outline-none
+                   focus:border-[#D6B56A]/70
+                   focus:ring-2 focus:ring-[#D6B56A]/10
+                   transition-all duration-300"
+          />
+
+
+          <button
+            type="submit"
+            class="group inline-flex items-center
+                   justify-center gap-2
+                   bg-gradient-to-r from-[#D6B56A] to-[#B9974F]
+                   text-[#04120D]
+                   rounded-xl px-5 py-3.5
+                   text-[10px] font-bold
+                   uppercase tracking-[0.13em]
+                   hover:brightness-110
+                   active:scale-[0.98]
+                   transition-all duration-300
+                   whitespace-nowrap"
+          >
+
+            Subscribe
+
+            <i
+              class="fa-solid fa-arrow-right text-[10px]
+                     group-hover:translate-x-1
+                     transition-transform"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+        </form>
+
+
+        <!-- Newsletter feedback -->
+
+        <p
+          id="footerNewsletterMessage"
+          class="hidden mt-3 text-xs leading-5"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+
+        <p
+          class="text-[10px] text-white/35
+                 mt-3 leading-5"
+        >
+          By subscribing, you agree to receive school-related updates.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       ACADEMICS
+  ======================================================== -->
+
+  <div class="lg:col-span-2">
+
+    <h4
+      class="flex items-center gap-3
+             text-white text-[11px]
+             font-bold uppercase
+             tracking-[0.22em] mb-7"
+    >
+
+      <span class="w-5 h-px bg-[#D6B56A]"></span>
+
+      Academics
+
+    </h4>
+
+
+    <ul class="space-y-4 text-[12px] font-light">
+
+      <li>
+        <a href="#experience" class="footer-link">
+          Culinary Arts
+        </a>
+      </li>
+
+      <li>
+        <a href="#experience" class="footer-link">
+          Hotel Management
+        </a>
+      </li>
+
+      <li>
+        <a href="#experience" class="footer-link">
+          Food & Beverage
+        </a>
+      </li>
+
+      <li>
+        <a href="#experience" class="footer-link">
+          Tourism & Eco-Resorts
+        </a>
+      </li>
+
+      <li>
+        <a href="#experience" class="footer-link">
+          Executive Training
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       INSTITUTION
+  ======================================================== -->
+
+  <div class="lg:col-span-2">
+
+    <h4
+      class="flex items-center gap-3
+             text-white text-[11px]
+             font-bold uppercase
+             tracking-[0.22em] mb-7"
+    >
+
+      <span class="w-5 h-px bg-[#D6B56A]"></span>
+
+      Institution
+
+    </h4>
+
+
+    <ul class="space-y-4 text-[12px] font-light">
+
+      <li>
+        <a href="#about" class="footer-link">
+          Our Story & Vision
+        </a>
+      </li>
+
+      <li>
+        <a href="#experience" class="footer-link">
+          Student Experience
+        </a>
+      </li>
+
+      <li>
+        <a href="#partnerships" class="footer-link">
+          Industry Partners
+        </a>
+      </li>
+
+      <li>
+        <a href="#campus" class="footer-link">
+          Campus & Gallery
+        </a>
+      </li>
+
+      <li>
+        <a href="#contact" class="footer-link">
+          Admissions Desk
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       ADMISSIONS
+  ======================================================== -->
+
+  <div class="lg:col-span-3">
+
+    <h4
+      class="flex items-center gap-3
+             text-white text-[11px]
+             font-bold uppercase
+             tracking-[0.22em] mb-7"
+    >
+
+      <span class="w-5 h-px bg-[#D6B56A]"></span>
+
+      Admissions
+
+    </h4>
+
+
+    <ul class="space-y-4 text-[12px] font-light">
+
+      <li>
+        <a href="#contact" class="footer-link">
+          Apply Online
+        </a>
+      </li>
+
+      <li>
+        <a href="#contact" class="footer-link">
+          Tuition & Fees
+        </a>
+      </li>
+
+      <li>
+        <a href="#contact" class="footer-link">
+          Scholarships
+        </a>
+      </li>
+
+      <li>
+        <a href="#campus" class="footer-link">
+          Book a Campus Tour
+        </a>
+      </li>
+
+      <li>
+        <a href="#contact" class="footer-link">
+          Contact Admissions
+        </a>
+      </li>
+
+    </ul>
+
+
+
+  </div>
+
+
+
+
+<!-- =========================================================
+     FOOTER JAVASCRIPT
+========================================================= -->
+
+<script>
+
+  /* =======================================================
+     1. AUTOMATIC COPYRIGHT YEAR
+  ======================================================== */
+
+  const footerCopyrightYear =
+    document.getElementById("footerCopyrightYear");
+
+  if (footerCopyrightYear) {
+
+    footerCopyrightYear.textContent = new Date().getFullYear();
+
+  }
+
+
+
+  /* =======================================================
+     2. NEWSLETTER FORM INTERACTION
+
+     IMPORTANT:
+     This is a frontend demonstration only.
+
+     A real newsletter requires a backend or email
+     marketing service to store subscriber information.
+  ======================================================== */
+
+  const footerNewsletterForm =
+    document.getElementById("footerNewsletterForm");
+
+
+  const footerNewsletterEmail =
+    document.getElementById("footerNewsletterEmail");
+
+
+  const footerNewsletterMessage =
+    document.getElementById("footerNewsletterMessage");
+
+
+
+  if (
+    footerNewsletterForm &&
+    footerNewsletterEmail &&
+    footerNewsletterMessage
+  ) {
+
+    footerNewsletterForm.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+
+      const email = footerNewsletterEmail.value.trim();
+
+
+      if (!email || !footerNewsletterEmail.checkValidity()) {
+
+        footerNewsletterMessage.textContent =
+          "Please enter a valid email address.";
+
+        footerNewsletterMessage.classList.remove(
+          "hidden",
+          "text-emerald-400"
+        );
+
+        footerNewsletterMessage.classList.add("text-red-400");
+
+        return;
+
+      }
+
+
+
+      /*
+        Frontend demonstration:
+
+        No subscriber data is sent or stored.
+
+        Connect this form to your backend when
+        your newsletter service is ready.
+      */
+
+
+      footerNewsletterMessage.textContent =
+        "Thank you! The newsletter form is working in demonstration mode. Subscription has not been saved.";
+
+
+      footerNewsletterMessage.classList.remove(
+        "hidden",
+        "text-red-400"
+      );
+
+      footerNewsletterMessage.classList.add("text-emerald-400");
+
+
+      footerNewsletterForm.reset();
+
+    });
+
+  }
+
+</script>
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+
+  /* Initialize Lucide Icons */
+  lucide.createIcons();
+
+
+  /* Mobile Menu */
+
+  const mobileMenuBtn =
+    document.getElementById('mobileMenuBtn');
+
+  const mobileMenu =
+    document.getElementById('mobileMenu');
+
+  const mobileLinks =
+    document.querySelectorAll('.mobile-link');
+
+
+  mobileMenuBtn.addEventListener('click', () => {
+
+    mobileMenu.classList.toggle('hidden');
+
+  });
+
+
+  mobileLinks.forEach(link => {
+
+    link.addEventListener('click', () => {
+
+      mobileMenu.classList.add('hidden');
+
+    });
+
+  });
+
+
+  /* Navbar Scroll */
+
+  const navbar =
+    document.getElementById('navbar');
+
+
+  window.addEventListener('scroll', () => {
+
+    if (window.scrollY > 40) {
+
+      navbar.classList.add('shadow-xl');
+
+    } else {
+
+      navbar.classList.remove('shadow-xl');
+
+    }
+
+  });
+
+
+  /* Scroll Reveal */
+
+  const observerOptions = {
+
+    threshold: 0.1,
+
+    rootMargin: "0px 0px -50px 0px"
+
+  };
+
+
+  const observer =
+    new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add('visible');
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      observerOptions
+    );
+
+
+  document
+    .querySelectorAll('.reveal')
+    .forEach(el => {
+
+      observer.observe(el);
+
+    });
+
+</script>
+<script src="../JS/index.js"></script>
+
+<script src="../JS/about-slider.js"></script>
+<!-- =========================================================
+     WELCOME / APPLY NOW POPUP
+========================================================= -->
+
+<div
+  id="applyPopup"
+  class="fixed inset-0 z-[9999] hidden items-center justify-center
+         bg-black/70 backdrop-blur-sm px-4"
+  aria-hidden="true"
+>
+
+  <!-- POPUP CARD -->
+  <div
+    id="applyPopupCard"
+    class="relative w-full max-w-lg overflow-hidden rounded-3xl
+           border border-[#D6B56A]/30
+           bg-[#07100d]
+           shadow-[0_25px_80px_rgba(0,0,0,0.6)]
+           opacity-0 scale-95
+           transition-all duration-500"
+  >
+
+    <!-- Decorative glow -->
+    <div
+      class="absolute -top-24 -right-24 h-64 w-64 rounded-full
+             bg-[#D6B56A]/10 blur-3xl"
+    ></div>
+
+    <div
+      class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full
+             bg-[#1E6147]/30 blur-3xl"
+    ></div>
+
+
+    <!-- CLOSE BUTTON -->
+    <button
+      id="closeApplyPopup"
+      type="button"
+      aria-label="Close"
+      class="absolute right-5 top-5 z-20 flex h-10 w-10
+             items-center justify-center rounded-full
+             border border-white/10
+             bg-white/5
+             text-white/70
+             transition-all duration-300
+             hover:border-[#D6B56A]/50
+             hover:bg-[#D6B56A]/10
+             hover:text-[#D6B56A]
+             hover:rotate-90"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="h-5 w-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+
+
+    <!-- CONTENT -->
+    <div class="relative z-10 px-7 py-10 text-center sm:px-10 sm:py-12">
+
+      <!-- Small badge -->
+      <div
+        class="mx-auto mb-5 inline-flex items-center gap-2
+               rounded-full
+               border border-[#D6B56A]/30
+               bg-[#D6B56A]/10
+               px-4 py-2"
+      >
+        <span class="h-2 w-2 rounded-none bg-[#D6B56A]"></span>
+
+        <span
+          class="text-[11px] font-semibold uppercase
+                 tracking-[0.2em] text-[#D6B56A]"
+        >
+          Application is Open now
+        </span>
+      </div>
+
+
+      <!-- TITLE -->
+      <h2
+        class="font-serif text-3xl font-bold leading-tight
+               text-white sm:text-4xl"
+      >
+        Ready to start your journey with 
+        <h4><span class="text-[#D6B56A]">
+         Noah’s Ark?
+        </span>
+      </h4>
+      </h2>
+
+
+      <!-- DESCRIPTION -->
+      <p
+        class="mx-auto mt-5 max-w-md text-sm leading-7
+               text-white/65 sm:text-base"
+      >
+        Take the first step toward an exciting career in
+        hospitality and tourism. You can apply now or come
+        back when you're ready.
+      </p>
+
+
+      <!-- DIVIDER -->
+      <div class="mx-auto my-7 flex items-center justify-center gap-3">
+        <span class="h-px w-12 bg-[#D6B56A]/30"></span>
+
+        <span class="h-1.5 w-1.5 rounded-full bg-[#D6B56A]"></span>
+
+        <span class="h-px w-12 bg-[#D6B56A]/30"></span>
+      </div>
+
+
+      <!-- BUTTONS -->
+      <div
+        class="flex flex-col gap-3 sm:flex-row
+               sm:justify-center"
+      >
+
+        <!-- APPLY NOW -->
+        <a
+          href="#apply"
+          id="popupApplyBtn"
+          class="group inline-flex items-center
+                 justify-center gap-2 rounded-xl
+                 bg-gradient-to-r
+                 from-[#D6B56A] to-[#B9974F]
+                 px-7 py-3.5
+                 text-sm font-bold uppercase
+                 tracking-wider
+                 text-[#07100d]
+                 shadow-lg
+                 transition-all duration-300
+                 hover:-translate-y-1
+                 hover:shadow-[#D6B56A]/30"
+        >
+          Apply Now
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="h-4 w-4 transition-transform
+                   duration-300
+                   group-hover:translate-x-1
+                   group-hover:-translate-y-1"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M7 17L17 7M7 7h10v10"
+            />
+          </svg>
+        </a>
+
+
+        <!-- MAYBE LATER -->
+        <button
+          id="maybeLaterBtn"
+          type="button"
+          class="inline-flex items-center
+                 justify-center rounded-xl
+                 border border-white/15
+                 bg-white/5
+                 px-7 py-3.5
+                 text-sm font-semibold
+                 text-white/75
+                 transition-all duration-300
+                 hover:border-[#D6B56A]/40
+                 hover:bg-white/10
+                 hover:text-white"
+        >
+          Maybe Later
+        </button>
+
+      </div>
+
+
+      <!-- FOOTNOTE -->
+      <p class="mt-6 text-[11px] text-white/35">
+        No pressure — you can apply whenever you're ready.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const popup = document.getElementById("applyPopup");
+  const popupCard = document.getElementById("applyPopupCard");
+  const closeBtn = document.getElementById("closeApplyPopup");
+  const maybeLaterBtn = document.getElementById("maybeLaterBtn");
+  const applyBtn = document.getElementById("popupApplyBtn");
+
+  function openPopup() {
+    popup.classList.remove("hidden");
+    popup.classList.add("flex");
+    popup.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("overflow-hidden");
+
+    requestAnimationFrame(() => {
+      popupCard.classList.remove("opacity-0", "scale-95");
+      popupCard.classList.add("opacity-100", "scale-100");
+    });
+  }
+
+  function closePopup() {
+    popupCard.classList.remove("opacity-100", "scale-100");
+    popupCard.classList.add("opacity-0", "scale-95");
+
+    setTimeout(() => {
+      popup.classList.remove("flex");
+      popup.classList.add("hidden");
+      popup.setAttribute("aria-hidden", "true");
+
+      document.body.classList.remove("overflow-hidden");
+    }, 300);
+  }
+
+  // Open automatically after 1.2 seconds
+  setTimeout(openPopup, 1200);
+
+  closeBtn.addEventListener("click", closePopup);
+  maybeLaterBtn.addEventListener("click", closePopup);
+
+  // Close when clicking outside the popup
+  popup.addEventListener("click", (event) => {
+    if (event.target === popup) {
+      closePopup();
+    }
+  });
+
+  // Close with ESC key
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closePopup();
+    }
+  });
+
+  // Close popup when applying
+  applyBtn.addEventListener("click", closePopup);
+
+});
+</script>
+
+<!-- =========================================================
+     HORIZONTAL SOCIAL & CONTACT BAR (Compact)
+========================================================= -->
+<div
+  id="floatingAppDock"
+  aria-label="Quick contact and social links"
+  class="!flex !flex-row items-center flex-nowrap gap-1.5 md:gap-2"
+>
+
+  <!-- Connect Heading -->
+  <span class="font-medium text-slate-600 text-xs hidden sm:inline-block mr-1 whitespace-nowrap">
+    Connect:
+  </span>
+
+  <!-- WhatsApp -->
+  <a
+    class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-white hover:bg-emerald-600 transition-colors"
+    href="https://wa.me/250780327623"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with us on WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp text-xs" aria-hidden="true"></i>
+  </a>
+
+  <!-- Phone Call -->
+  <a
+    class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+    href="tel:+250791684945"
+    aria-label="Call the admissions desk"
+  >
+    <i class="fa-solid fa-phone text-xs" aria-hidden="true"></i>
+  </a>
+
+  <!-- LinkedIn -->
+  <a
+    class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-sky-700 text-white hover:bg-sky-800 transition-colors"
+    href="https://www.linkedin.com/company/the-pinnacle-kigali/posts/?feedView=all"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit LinkedIn"
+  >
+    <i class="fa-brands fa-linkedin-in text-xs" aria-hidden="true"></i>
+  </a>
+
+  <!-- Instagram -->
+  <a
+    class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white hover:opacity-90 transition-opacity"
+    href="https://www.instagram.com/thepinnaclekigali?igsi=cmJpdW42emwyMTl6"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit Instagram"
+  >
+    <i class="fa-brands fa-instagram text-xs" aria-hidden="true"></i>
+  </a>
+
+  <!-- Facebook -->
+  <a
+    class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors"
+    href="https://www.facebook.com/share/1EVvKQwToz/?mibextid=wwXIfr"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit Facebook"
+  >
+    <i class="fa-brands fa-facebook-f text-xs" aria-hidden="true"></i>
+  </a>
+
+  <!-- X / Twitter -->
+  <a
+    class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white hover:bg-black transition-colors"
+    href="https://x.com/pinnaclekigali"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit X"
+  >
+    <i class="fa-brands fa-x-twitter text-xs" aria-hidden="true"></i>
+  </a>
+
+  <!-- Divider -->
+  <span
+    class="flex-shrink-0 h-4 w-px bg-slate-300 mx-0.5 hidden sm:inline-block"
+    aria-hidden="true"
+  ></span>
+
+  <!-- Email -->
+  <a
+    class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-rose-600 text-white hover:bg-rose-700 transition-colors"
+    href="mailto:noahsarktvet@gmail.com"
+    aria-label="Email the admissions desk"
+  >
+    <i class="fa-solid fa-envelope text-xs" aria-hidden="true"></i>
+  </a>
+
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const navbar = document.getElementById("navbar");
+
+    if (!navbar) return;
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 40) {
+            navbar.classList.add("nav-scrolled");
+        } else {
+            navbar.classList.remove("nav-scrolled");
+        }
+
+    });
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if (!("IntersectionObserver" in window)) {
+        revealElements.forEach(el => {
+            el.classList.add("visible");
+        });
+        return;
+    }
+
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -50px 0px"
+        }
+    );
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+
+});
+</script>
+<script>
+/* =========================================================
+   HERO EDITORIAL TEXT SLIDER
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const slides = document.querySelectorAll(
+        "#heroTextSlider .hero-text-slide"
+    );
+
+    const number = document.getElementById(
+        "heroSlideNumber"
+    );
+
+    if (!slides.length) return;
+
+
+    let currentSlide = 0;
+
+    const slideDuration = 5500;
+
+
+    function showNextSlide() {
+
+        const current = slides[currentSlide];
+
+        current.classList.remove("active");
+        current.classList.add("leaving");
+
+
+        currentSlide =
+            (currentSlide + 1) % slides.length;
+
+
+        const next = slides[currentSlide];
+
+
+        /*
+         * Small delay allows the outgoing
+         * slide to begin moving before the
+         * incoming slide appears.
+         */
+
+        setTimeout(() => {
+
+            current.classList.remove("leaving");
+
+            next.classList.add("active");
+
+            if (number) {
+
+                number.textContent =
+                    String(currentSlide + 1)
+                    .padStart(2, "0");
+
+            }
+
+        }, 180);
+
+    }
+
+
+    /*
+     * Start automatic rotation
+     */
+
+    setInterval(
+        showNextSlide,
+        slideDuration
+    );
+
+});
+</script>
+</body>
+</html>

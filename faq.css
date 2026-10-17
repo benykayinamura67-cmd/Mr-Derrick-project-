@@ -1,0 +1,1078 @@
+
+/* =====================================================
+   01. ROOT VARIABLES
+===================================================== */
+:root{
+    --forest:#071A12;
+    --forest-light:#10382A;
+    --forest-medium:#164A36;
+    --gold:#D6B56A;
+    --gold-dark:#B9974F;
+    --gold-light:#E8D49B;
+    --cream:#F8F7F2;
+    --white:#FFFFFF;
+    --black:#050505;
+    --text-dark:#101512;
+    --text-light:#EDEDE8;
+    --footer-primary:#071A12;
+    --footer-secondary:#0B241B;
+    --border-dark:rgba(214,181,106,.18);
+    --border-light:rgba(16,21,18,.12);
+    --shadow-luxury:0 25px 80px rgba(0,0,0,.25);
+
+    /* Consistent light-theme palette */
+    --light-bg:#F5F3EC;
+    --light-surface:#FFFFFF;
+    --light-surface-alt:#F0F2ED;
+    --light-text:#151914;
+    --light-muted:#59665E;
+    --light-border:rgba(16,21,18,.13);
+    --light-gold:#8C681F;
+    --light-shadow:0 15px 45px rgba(11,36,27,.08);
+}
+
+/* =====================================================
+   02. GLOBAL STYLES
+===================================================== */
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(circle at top right,rgba(214,181,106,.06),transparent 35%),
+        var(--forest);
+    color:var(--text-light);
+    font-family:"Plus Jakarta Sans",Arial,sans-serif;
+    overflow-x:hidden;
+    transition:background .4s ease,color .4s ease;
+}
+
+body.modal-open{overflow:hidden}
+
+h1,h2,h3,h4{
+    font-family:"Playfair Display",Georgia,serif;
+}
+
+button,input,textarea{
+    font-family:"Plus Jakarta Sans",Arial,sans-serif;
+}
+
+button{cursor:pointer}
+
+::selection{
+    background:var(--gold);
+    color:var(--forest);
+}
+
+/* =====================================================
+   03. SCROLLBAR
+===================================================== */
+::-webkit-scrollbar{width:8px}
+
+::-webkit-scrollbar-track{background:#050505}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--gold-dark),var(--gold));
+    border-radius:999px;
+}
+
+/* =====================================================
+   04. REUSABLE UTILITIES
+===================================================== */
+.gold-text-gradient{
+    background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.gold-divider{
+    width:70px;
+    height:2px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    margin:0 auto;
+}
+
+/* =====================================================
+   05. GLASS EFFECTS
+===================================================== */
+.glass-luxury{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(214,181,106,.16);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 20px 60px rgba(0,0,0,.15);
+}
+
+.glass-card{
+    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+    border:1px solid rgba(214,181,106,.14);
+    transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease;
+}
+
+.glass-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(214,181,106,.42);
+    box-shadow:0 20px 50px rgba(0,0,0,.20);
+}
+
+/* =====================================================
+   06. MAIN NAVIGATION
+===================================================== */
+#navbar{
+    background:rgba(7,16,13,.96);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(214,181,106,.12);
+    box-shadow:0 8px 35px rgba(0,0,0,.16);
+    transition:background-color .5s ease,box-shadow .5s ease,border-color .5s ease,backdrop-filter .5s ease;
+}
+
+#navbar.nav-scrolled{
+    background:rgba(7,16,13,.985);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+    border-bottom-color:rgba(214,181,106,.2);
+    box-shadow:0 14px 45px rgba(0,0,0,.28);
+}
+
+#navbar nav{
+    border-bottom:1px solid transparent;
+    transition:border-color .5s ease;
+}
+
+#navbar.nav-scrolled nav{
+    border-bottom-color:rgba(214,181,106,.12);
+}
+
+/* =====================================================
+   07. DESKTOP NAVIGATION LINKS
+===================================================== */
+.premium-nav-link{
+    position:relative;
+    display:flex;
+    align-items:center;
+    height:88px;
+    padding:0 18px;
+    color:rgba(255,255,255,.82);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    transition:color .3s ease,background-color .3s ease;
+}
+
+.premium-nav-link:not(:last-child)::before{
+    content:"";
+    position:absolute;
+    right:0;
+    top:50%;
+    width:3px;
+    height:3px;
+    border-radius:999px;
+    background:rgba(214,181,106,.65);
+    transform:translateY(-50%) rotate(45deg);
+}
+
+.premium-nav-link::after{
+    content:"";
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:25px;
+    height:1px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transform-origin:center;
+    transition:transform 350ms cubic-bezier(.4,0,.2,1);
+}
+
+.premium-nav-link:hover{color:var(--gold)}
+
+.premium-nav-link:hover::after{transform:scaleX(1)}
+
+.premium-nav-apply{color:var(--gold)}
+
+/* =====================================================
+   08. LOGO AND THEME TOGGLE
+===================================================== */
+#navbar a img{
+    transition:transform 400ms cubic-bezier(.16,1,.3,1);
+}
+
+#navbar a:hover img{transform:scale(1.04)}
+
+#themeToggle{
+    transition:transform .3s ease,background-color .3s ease,border-color .3s ease,color .3s ease;
+}
+
+#themeToggle:hover{transform:scale(1.06)}
+
+/* =====================================================
+   09. MOBILE NAVIGATION
+===================================================== */
+#menuButton{
+    transition:border-color .3s ease,background-color .3s ease,transform .3s ease;
+}
+
+#menuButton:hover{
+    border-color:var(--gold);
+    background:rgba(214,181,106,.06);
+}
+
+.menu-line{
+    transform-origin:center;
+    transition:transform .3s ease,opacity .3s ease;
+}
+
+#menuPanel{
+    border-radius:0;
+    overflow:hidden;
+    transform-origin:top right;
+    transition:opacity .25s ease,transform .25s ease;
+}
+
+#menuPanel.menu-open{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+}
+
+#menuPanel:not(.menu-open){
+    opacity:0;
+    transform:translateY(8px) scale(.97);
+    pointer-events:none;
+}
+
+.mobile-nav-link{
+    position:relative;
+    display:block;
+    padding:14px 16px;
+    color:rgba(255,255,255,.82);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    transition:color .25s ease,background-color .25s ease,padding-left .25s ease;
+}
+
+.mobile-nav-link:hover{
+    color:var(--gold);
+    background:rgba(214,181,106,.06);
+    padding-left:21px;
+}
+
+.mobile-nav-link::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:var(--gold);
+    transform:scaleY(0);
+    transition:transform .25s ease;
+}
+
+.mobile-nav-link:hover::before{transform:scaleY(1)}
+
+/* =====================================================
+   10. FAQ HERO
+===================================================== */
+.faq-background{
+    position:relative;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(214,181,106,.08),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(22,74,54,.25),transparent 35%),
+        linear-gradient(135deg,#071A12,#050505);
+}
+
+.faq-background::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(214,181,106,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(214,181,106,.025) 1px,transparent 1px);
+    background-size:50px 50px;
+    pointer-events:none;
+}
+
+/* =====================================================
+   11. FAQ SEARCH
+===================================================== */
+.faq-search{
+    width:100%;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(214,181,106,.20);
+    color:white;
+    outline:none;
+    transition:border-color .25s ease,box-shadow .25s ease,background .25s ease;
+}
+
+.faq-search::placeholder{color:rgba(255,255,255,.40)}
+
+.faq-search:focus{
+    border-color:rgba(214,181,106,.65);
+    background:rgba(255,255,255,.065);
+    box-shadow:0 0 0 4px rgba(214,181,106,.06);
+}
+
+/* =====================================================
+   12. FAQ CATEGORY BUTTONS
+===================================================== */
+.faq-category{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(214,181,106,.14);
+    background:rgba(255,255,255,.025);
+    color:rgba(255,255,255,.72);
+    transition:color .3s ease,border-color .3s ease,background .3s ease,transform .3s ease,box-shadow .3s ease;
+}
+
+.faq-category::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.10),transparent);
+    transition:left .5s ease;
+    pointer-events:none;
+}
+
+.faq-category:hover::after{left:100%}
+
+.faq-category:hover{
+    border-color:rgba(214,181,106,.45);
+    color:var(--gold);
+    transform:translateY(-2px);
+}
+
+.faq-category.active{
+    background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+    color:var(--forest);
+    border-color:var(--gold);
+    box-shadow:0 10px 30px rgba(214,181,106,.15);
+}
+
+/* =====================================================
+   13. FAQ GROUPS AND HEADINGS
+===================================================== */
+.faq-group{
+    display:none;
+    animation:faqFade .35s ease;
+}
+
+.faq-group.active{display:block}
+
+@keyframes faqFade{
+    from{opacity:0;transform:translateY(8px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.faq-group-title{
+    position:relative;
+    padding-bottom:15px;
+    margin-bottom:20px;
+}
+
+.faq-group-title::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:50px;
+    height:2px;
+    background:var(--gold);
+}
+
+/* =====================================================
+   14. FAQ ACCORDION ITEMS
+===================================================== */
+.faq-item{
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+    border:1px solid rgba(214,181,106,.13);
+    border-radius:16px;
+    margin-bottom:12px;
+    transition:border-color .3s ease,background .3s ease,box-shadow .3s ease;
+}
+
+.faq-item:hover{border-color:rgba(214,181,106,.35)}
+
+.faq-item[open]{
+    border-color:rgba(214,181,106,.45);
+    background:rgba(214,181,106,.035);
+    box-shadow:0 15px 45px rgba(0,0,0,.12);
+}
+
+.faq-question{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:20px 22px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.faq-question::-webkit-details-marker{display:none}
+
+.faq-chevron{
+    flex-shrink:0;
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    border:1px solid rgba(214,181,106,.18);
+    color:var(--gold);
+    transition:transform .3s ease,background .3s ease;
+}
+
+.faq-item[open] .faq-chevron{
+    transform:rotate(180deg);
+    background:rgba(214,181,106,.08);
+}
+
+.faq-answer{
+    padding:0 22px 22px;
+    color:rgba(255,255,255,.63);
+    line-height:1.8;
+    animation:answerReveal .3s ease;
+}
+
+@keyframes answerReveal{
+    from{opacity:0;transform:translateY(-5px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* =====================================================
+   15. SEARCH RESULTS AND EMPTY STATE
+===================================================== */
+#searchResultsInfo{
+    color:rgba(255,255,255,.55);
+    font-size:.85rem;
+}
+
+#faqEmptyState{
+    display:none;
+    text-align:center;
+    padding:55px 20px;
+    border:1px dashed rgba(214,181,106,.25);
+    border-radius:20px;
+    background:rgba(255,255,255,.025);
+}
+
+/* =====================================================
+   16. PREMIUM BUTTON
+===================================================== */
+.premium-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+    color:var(--forest);
+    font-weight:800;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 15px 40px rgba(214,181,106,.14);
+    transition:transform .3s ease,box-shadow .3s ease,background .3s ease;
+}
+
+.premium-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 20px 50px rgba(214,181,106,.22);
+}
+
+.premium-button:active{transform:translateY(-1px)}
+
+/* =====================================================
+   17. INQUIRY MODAL AND FORM
+===================================================== */
+#inquiryModal{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .3s ease,visibility .3s ease;
+}
+
+#inquiryModal.modal-open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.modal-card{
+    transform:translateY(20px) scale(.97);
+    transition:transform .3s ease;
+}
+
+#inquiryModal.modal-open .modal-card{
+    transform:translateY(0) scale(1);
+}
+
+.form-input{
+    width:100%;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(214,181,106,.18);
+    color:white;
+    outline:none;
+    transition:border-color .25s ease,box-shadow .25s ease;
+}
+
+.form-input:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 4px rgba(214,181,106,.06);
+}
+
+.form-input::placeholder{color:rgba(255,255,255,.38)}
+
+/* =====================================================
+   18. STATUS MESSAGES
+===================================================== */
+.status-message{
+    display:none;
+    padding:12px 14px;
+    border-radius:10px;
+    font-size:.85rem;
+    margin-top:12px;
+}
+
+.status-message.show{display:block}
+
+.status-success{
+    color:#DDF8E9;
+    background:rgba(65,180,110,.10);
+    border:1px solid rgba(65,180,110,.25);
+}
+
+.status-error{
+    color:#FFE0E0;
+    background:rgba(220,70,70,.10);
+    border:1px solid rgba(220,70,70,.25);
+}
+
+/* =====================================================
+   19. FOOTER
+===================================================== */
+.luxury-footer{
+    position:relative;
+    background:linear-gradient(135deg,var(--footer-primary),var(--footer-secondary));
+    border-top:1px solid rgba(214,181,106,.14);
+    overflow:hidden;
+    transition:background .4s ease;
+}
+
+.luxury-footer::before,
+.luxury-footer::after{
+    content:"";
+    position:absolute;
+    pointer-events:none;
+}
+
+.luxury-footer::before{
+    width:500px;
+    height:500px;
+    top:-300px;
+    right:-200px;
+    background:radial-gradient(circle,rgba(214,181,106,.10),transparent 70%);
+}
+
+.luxury-footer::after{
+    width:400px;
+    height:400px;
+    bottom:-250px;
+    left:-200px;
+    background:radial-gradient(circle,rgba(22,74,54,.25),transparent 70%);
+}
+
+.footer-link{
+    color:rgba(255,255,255,.58);
+    transition:color .25s ease,transform .25s ease;
+}
+
+.footer-link:hover{
+    color:var(--gold);
+    transform:translateX(3px);
+}
+
+.footer-social{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(214,181,106,.16);
+    color:rgba(255,255,255,.65);
+    border-radius:50%;
+    transition:all .3s ease;
+}
+
+.footer-social:hover{
+    color:var(--forest);
+    background:var(--gold);
+    border-color:var(--gold);
+    transform:translateY(-4px);
+}
+
+/* =====================================================
+   20. FOOTER COLOR PANEL
+===================================================== */
+.footer-color-panel{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition:max-height .4s ease,opacity .3s ease;
+}
+
+.footer-color-panel.open{
+    max-height:300px;
+    opacity:1;
+}
+
+.footer-color-swatch{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,.15);
+    transition:transform .25s ease,border-color .25s ease;
+}
+
+.footer-color-swatch:hover{transform:scale(1.12)}
+
+.footer-color-swatch.active{
+    border-color:white;
+    box-shadow:0 0 0 3px rgba(214,181,106,.25);
+}
+
+/* =====================================================
+   21. BACK TO TOP AND TOAST
+===================================================== */
+#backToTop{
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(15px);
+    transition:all .3s ease;
+}
+
+#backToTop.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+#toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:9999;
+    max-width:340px;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+    transition:all .3s ease;
+}
+
+#toast.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+/* =====================================================
+   22. LIGHT THEME — GLOBAL
+===================================================== */
+html.light-theme{
+    color-scheme:light;
+    --text-light:var(--light-text);
+    --footer-primary:#F8F7F2;
+    --footer-secondary:#F0F2ED;
+    --border-dark:rgba(16,21,18,.13);
+}
+
+html.light-theme body{
+    background:
+        radial-gradient(circle at top right,rgba(166,124,40,.06),transparent 35%),
+        var(--light-bg);
+    color:var(--light-text);
+}
+
+html.light-theme ::selection{
+    background:var(--gold-dark);
+    color:#FFFFFF;
+}
+
+html.light-theme ::-webkit-scrollbar-track{background:#E9E8E1}
+
+html.light-theme ::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--gold-dark),var(--gold));
+}
+
+/* =====================================================
+   23. LIGHT THEME — NAVIGATION
+===================================================== */
+html.light-theme #navbar{
+    background:rgba(249,250,250,.97);
+    border-bottom-color:rgba(166,124,40,.16);
+    box-shadow:0 8px 35px rgba(11,36,27,.08);
+}
+
+html.light-theme #navbar.nav-scrolled{
+    background:rgba(249,250,250,.99);
+    border-bottom-color:rgba(166,124,40,.24);
+    box-shadow:0 14px 45px rgba(11,36,27,.12);
+}
+
+html.light-theme #navbar.nav-scrolled nav{
+    border-bottom-color:rgba(166,124,40,.12);
+}
+
+html.light-theme .premium-nav-link{color:rgba(5,7,6,.78)}
+
+html.light-theme .premium-nav-link:hover{color:var(--gold-dark)}
+
+html.light-theme .premium-nav-link::before{
+    background:rgba(166,124,40,.65);
+}
+
+html.light-theme .premium-nav-link::after{background:var(--gold-dark)}
+
+html.light-theme .premium-nav-apply{color:var(--gold-dark)}
+
+html.light-theme #themeToggle{
+    background:#FFFFFF;
+    color:var(--gold-dark);
+    border-color:rgba(166,124,40,.35);
+}
+
+html.light-theme #themeToggle:hover{background:#F2EEE4}
+
+html.light-theme #menuButton{
+    color:var(--light-text);
+    border-color:rgba(16,21,18,.16);
+}
+
+html.light-theme #menuButton:hover{
+    background:rgba(166,124,40,.06);
+    border-color:var(--gold-dark);
+}
+
+html.light-theme #menuPanel{
+    background:rgba(255,255,255,.98);
+    border-color:rgba(166,124,40,.25);
+    box-shadow:0 20px 50px rgba(11,36,27,.12);
+}
+
+html.light-theme .mobile-nav-link{color:rgba(5,7,6,.78)}
+
+html.light-theme .mobile-nav-link:hover{
+    color:var(--gold-dark);
+    background:rgba(166,124,40,.06);
+}
+
+html.light-theme .mobile-nav-link::before{background:var(--gold-dark)}
+
+/* =====================================================
+   24. LIGHT THEME — FAQ HERO AND SEARCH
+===================================================== */
+html.light-theme .faq-background{
+    background:
+        radial-gradient(circle at 10% 20%,rgba(214,181,106,.15),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(22,74,54,.07),transparent 35%),
+        linear-gradient(135deg,#F8F7F2,#EDEBE2);
+    color:var(--light-text);
+}
+
+html.light-theme .faq-background::before{
+    background-image:
+        linear-gradient(rgba(140,104,31,.045) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(140,104,31,.045) 1px,transparent 1px);
+}
+
+html.light-theme .faq-search{
+    color:var(--light-text);
+    background:rgba(255,255,255,.82);
+    border-color:var(--light-border);
+}
+
+html.light-theme .faq-search::placeholder{color:rgba(21,25,20,.48)}
+
+html.light-theme .faq-search:focus{
+    background:#FFFFFF;
+    border-color:rgba(140,104,31,.65);
+    box-shadow:0 0 0 4px rgba(140,104,31,.08);
+}
+
+/* =====================================================
+   25. LIGHT THEME — FAQ CATEGORIES
+===================================================== */
+html.light-theme .faq-category{
+    color:rgba(21,25,20,.76);
+    background:rgba(255,255,255,.70);
+    border-color:rgba(16,21,18,.13);
+}
+
+html.light-theme .faq-category::after{
+    background:linear-gradient(90deg,transparent,rgba(140,104,31,.08),transparent);
+}
+
+html.light-theme .faq-category:hover{
+    color:var(--light-gold);
+    background:#FFFFFF;
+    border-color:rgba(140,104,31,.42);
+}
+
+html.light-theme .faq-category.active{
+    background:linear-gradient(135deg,#D6B56A,#B9974F);
+    color:#10251A;
+    border-color:#B9974F;
+    box-shadow:0 10px 30px rgba(140,104,31,.14);
+}
+
+html.light-theme .faq-group-title{color:var(--light-text)}
+
+html.light-theme .faq-group-title::after{background:var(--gold-dark)}
+
+/* =====================================================
+   26. LIGHT THEME — FAQ ACCORDION
+===================================================== */
+html.light-theme .faq-item{
+    background:rgba(255,255,255,.82);
+    border-color:rgba(16,21,18,.12);
+    box-shadow:0 8px 25px rgba(11,36,27,.035);
+}
+
+html.light-theme .faq-item:hover{
+    border-color:rgba(140,104,31,.35);
+}
+
+html.light-theme .faq-item[open]{
+    background:#FFFFFF;
+    border-color:rgba(140,104,31,.42);
+    box-shadow:0 15px 40px rgba(11,36,27,.08);
+}
+
+html.light-theme .faq-question{color:var(--light-text)}
+
+html.light-theme .faq-chevron{
+    color:var(--light-gold);
+    border-color:rgba(140,104,31,.22);
+}
+
+html.light-theme .faq-item[open] .faq-chevron{
+    background:rgba(214,181,106,.15);
+}
+
+html.light-theme .faq-answer{color:#505B52}
+
+html.light-theme #searchResultsInfo{color:#59665E}
+
+html.light-theme #faqEmptyState{
+    color:var(--light-text);
+    background:rgba(255,255,255,.60);
+    border-color:rgba(16,21,18,.20);
+}
+
+/* =====================================================
+   27. LIGHT THEME — BUTTONS AND FORMS
+===================================================== */
+html.light-theme .premium-button{
+    color:#10251A;
+    border-color:rgba(140,104,31,.18);
+}
+
+html.light-theme .form-input{
+    color:var(--light-text);
+    background:rgba(255,255,255,.90);
+    border-color:var(--light-border);
+}
+
+html.light-theme .form-input::placeholder{color:rgba(21,25,20,.48)}
+
+html.light-theme .form-input:focus{
+    border-color:var(--gold-dark);
+    box-shadow:0 0 0 4px rgba(140,104,31,.08);
+}
+
+html.light-theme .status-success{
+    color:#175C38;
+    background:rgba(65,180,110,.09);
+    border-color:rgba(35,130,75,.25);
+}
+
+html.light-theme .status-error{
+    color:#9A2929;
+    background:rgba(220,70,70,.07);
+    border-color:rgba(180,45,45,.23);
+}
+
+/* =====================================================
+   28. LIGHT THEME — GLASS EFFECTS
+===================================================== */
+html.light-theme .glass-luxury{
+    background:rgba(255,255,255,.82);
+    border-color:rgba(166,124,40,.20);
+    box-shadow:0 20px 60px rgba(11,36,27,.08);
+}
+
+html.light-theme .glass-card{
+    background:rgba(255,255,255,.82);
+    border-color:rgba(11,36,27,.10);
+    color:#0B241B;
+}
+
+html.light-theme .glass-card:hover{
+    background:rgba(255,255,255,.98);
+    border-color:rgba(166,124,40,.40);
+}
+
+/* =====================================================
+   29. LIGHT THEME — TAILWIND UTILITY OVERRIDES
+   Keep these only for classes used by your HTML.
+===================================================== */
+html.light-theme .text-white{color:#050706!important}
+html.light-theme .text-white\/90{color:rgba(5,7,6,.90)!important}
+html.light-theme .text-white\/80{color:rgba(5,7,6,.80)!important}
+html.light-theme .text-white\/75{color:rgba(5,7,6,.75)!important}
+html.light-theme .text-white\/70{color:rgba(5,7,6,.70)!important}
+html.light-theme .text-white\/60{color:rgba(5,7,6,.60)!important}
+html.light-theme .text-white\/50{color:rgba(5,7,6,.50)!important}
+
+html.light-theme .bg-\[\#0B241B\]{
+    background-color:#F7F8F6!important;
+}
+
+html.light-theme .bg-\[\#10382A\]{
+    background-color:#F2F5F2!important;
+}
+
+html.light-theme .bg-\[\#071A12\]{
+    background-color:#EAF0ED!important;
+}
+
+html.light-theme .text-\[\#D6B56A\]{
+    color:#8C681F!important;
+}
+
+html.light-theme .text-\[\#F1E4C3\]{
+    color:#163C42!important;
+}
+
+html.light-theme .border-white\/10{
+    border-color:rgba(5,7,6,.12)!important;
+}
+
+html.light-theme .border-white\/20{
+    border-color:rgba(5,7,6,.18)!important;
+}
+
+html.light-theme .border-white\/30{
+    border-color:rgba(5,7,6,.25)!important;
+}
+
+/* =====================================================
+   30. LIGHT THEME — FOOTER
+===================================================== */
+html.light-theme .luxury-footer,
+html.light-theme #siteFooter{
+    background:linear-gradient(135deg,#F8F7F2,#F0F2ED)!important;
+    color:#26352D!important;
+    border-top-color:rgba(166,124,40,.25)!important;
+}
+
+html.light-theme .luxury-footer::before,
+html.light-theme #siteFooter::before{
+    background:radial-gradient(circle,rgba(214,181,106,.12),transparent 70%);
+}
+
+html.light-theme .luxury-footer::after,
+html.light-theme #siteFooter::after{
+    background:radial-gradient(circle,rgba(22,74,54,.07),transparent 70%);
+}
+
+html.light-theme #siteFooter h2,
+html.light-theme #siteFooter h3,
+html.light-theme #siteFooter h4{
+    color:#10291E!important;
+}
+
+html.light-theme #siteFooter p{color:#59665E!important}
+
+html.light-theme .luxury-footer .footer-link,
+html.light-theme #siteFooter .footer-link{
+    color:#46564C!important;
+}
+
+html.light-theme .luxury-footer .footer-link:hover,
+html.light-theme #siteFooter .footer-link:hover{
+    color:#A67C28!important;
+}
+
+html.light-theme .footer-social{
+    color:#46564C;
+    border-color:rgba(166,124,40,.25);
+}
+
+html.light-theme .footer-social:hover{
+    color:#FFFFFF;
+    background:var(--gold-dark);
+    border-color:var(--gold-dark);
+}
+
+html.light-theme .footer-color-swatch{
+    border-color:rgba(16,21,18,.20);
+}
+
+html.light-theme .footer-color-swatch.active{
+    border-color:var(--gold-dark);
+}
+
+/* =====================================================
+   31. REDUCED MOTION ACCESSIBILITY
+===================================================== */
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto!important;
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+    }
+}
+
+/* =====================================================
+   32. MOBILE RESPONSIVENESS
+===================================================== */
+@media(max-width:640px){
+    .faq-question{
+        padding:17px;
+        font-size:.92rem;
+        gap:12px;
+    }
+
+    .faq-answer{
+        padding:0 17px 18px;
+        font-size:.88rem;
+    }
+
+    .footer-social{
+        width:38px;
+        height:38px;
+    }
+
+    #toast{
+        left:15px;
+        right:15px;
+        bottom:15px;
+        max-width:none;
+    }
+}

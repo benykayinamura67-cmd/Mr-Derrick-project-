@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rwanda School of Hospitality — International Luxury Hotel School in Kigali.">
+<meta name="theme-color" content="#071A12">
+<title>Rwanda School of Hospitality | FAQ</title>
+
+<!-- EXTERNAL RESOURCES -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../CSS/faq.css">
+</head>
+<body>
+<!-- =====================================================
+     06. MAIN HEADER AND NAVIGATION
+===================================================== -->
+<header id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-500">
+
+  <div class="w-full px-4 sm:px-8 lg:px-12">
+
+    <nav class="flex h-[88px] items-center border-b border-white/10">
+
+      <!-- SCHOOL LOGO -->
+      <a href="index.html"
+        class="group flex shrink-0 items-center gap-3">
+
+        <div class="flex h-10 w-10 items-center justify-center
+          overflow-hidden border border-[#D6B56A]/50 bg-[#0B241B]
+          transition-all duration-300 group-hover:border-[#D6B56A]">
+
+          <img src="../IMAGES/logo.png"
+            alt="Noah's Ark logo"
+            class="h-full w-full object-contain p-1">
+        </div>
+
+        <div class="hidden sm:block">
+          <div class="font-bold text-[10px] tracking-[0.24em] text-white/90">
+            NOAH’S ARK
+          </div>
+          <div class="font-semibold text-[9px] tracking-[0.20em] text-[#D6B56A]">
+            INTERNATIONAL SCHOOL
+          </div>
+        </div>
+
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <div class="ml-auto hidden items-center lg:flex">
+        <a href="index.html" class="premium-nav-link">Home</a>
+        <a href="programs.html" class="premium-nav-link">Our Programs</a>
+        <a href="experience.html" class="premium-nav-link">Experience</a>
+        <a href="campus.html" class="premium-nav-link">Explore our Campus</a>
+        <a href="faq.html" class="premium-nav-link">FAQ</a>
+        <a href="ApplyNow.html" class="premium-nav-link premium-nav-apply">
+          Apply Now
+        </a>
+      </div>
+
+      <!-- THEME TOGGLE + MOBILE MENU -->
+      <div class="ml-auto lg:ml-6 flex shrink-0 items-center gap-3">
+
+        <!-- LIGHT / DARK THEME TOGGLE -->
+        <button
+          id="themeToggle"
+          type="button"
+          aria-label="Switch to light mode"
+          title="Switch to light mode"
+          class="theme-toggle inline-flex h-10 w-10 shrink-0
+            items-center justify-center rounded-full
+            border border-[#D6B56A]/30
+            bg-[#10382A]/60 text-[#D6B56A]
+            transition-all duration-300"
+        >
+
+          <!-- SUN ICON -->
+          <svg id="sunIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            aria-hidden="true">
+
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 3v2m0 14v2M4.93 4.93l1.41 1.41
+              m11.32 11.32l1.41 1.41M3 12h2m14 0h2
+              M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41
+              M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+
+          <!-- MOON ICON -->
+          <svg id="moonIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            aria-hidden="true">
+
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21 12.79A9 9 0 1111.21 3
+              7 7 0 0021 12.79z"/>
+          </svg>
+
+        </button>
+
+        <!-- MOBILE MENU WRAPPER -->
+        <div class="relative lg:hidden">
+
+          <!-- HAMBURGER BUTTON -->
+          <button
+            id="menuButton"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="menuPanel"
+            class="inline-flex h-10 w-10 shrink-0
+              items-center justify-center
+              border border-[#D6B56A]/30 bg-transparent
+              transition-all duration-300
+              hover:border-[#D6B56A]"
+          >
+
+            <span class="flex w-4 flex-col items-center gap-1">
+              <span class="menu-line block h-px w-4 bg-[#D6B56A]"></span>
+              <span class="menu-line block h-px w-4 bg-[#D6B56A]"></span>
+              <span class="menu-line block h-px w-4 bg-[#D6B56A]"></span>
+            </span>
+
+          </button>
+
+          <!-- MOBILE DROPDOWN MENU -->
+          <div
+            id="menuPanel"
+            class="absolute right-0 top-full mt-3 w-64
+              border border-[#D6B56A]/20
+              bg-[#07100d]/95 shadow-2xl backdrop-blur-xl"
+          >
+
+            <div class="p-2">
+              <a href="index.html" class="mobile-nav-link">Home</a>
+              <a href="programs.html" class="mobile-nav-link">Our Programs</a>
+              <a href="experience.html" class="mobile-nav-link">Experience</a>
+              <a href="campus.html" class="mobile-nav-link">Explore our Campus</a>
+              <a href="faq.html" class="mobile-nav-link">FAQ</a>
+              <a href="ApplyNow.html" class="mobile-nav-link">Apply Now</a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+  </div>
+</header>
+
+<!-- MAIN -->
+<main id="top">
+
+<!-- FAQ SECTION -->
+<section id="faq" class="faq-background relative min-h-screen pt-44 sm:pt-48 pb-24">
+<div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<!-- HEADER -->
+<div class="max-w-3xl mx-auto text-center">
+<p class="text-xs tracking-[.35em] uppercase text-[#D6B56A] font-bold">Common Inquiries</p>
+<h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold">Frequently Asked <span class="gold-text-gradient">Questions</span></h1>
+<div class="gold-divider mt-7"></div>
+<p class="mt-7 text-sm sm:text-base leading-8 text-white/55">Find answers to common questions about admissions, programs, fees, internships, careers and student life at Rwanda School of Hospitality.</p>
+</div>
+
+<!-- SEARCH -->
+<div class="max-w-3xl mx-auto mt-10">
+<div class="relative">
+<i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-[#D6B56A]/70"></i>
+<input id="faqSearch" type="search" class="faq-search rounded-2xl pl-13 pr-5 py-4" placeholder="Search your question..." autocomplete="off" aria-label="Search frequently asked questions">
+</div>
+<div id="searchResultsInfo" class="mt-3 text-center" aria-live="polite">Showing Admissions questions</div>
+</div>
+
+<!-- CATEGORIES -->
+<div id="faqCategories" class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+<button type="button" class="faq-category active rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold" data-category="admissions"><i class="fa-solid fa-door-open mr-2"></i>Admissions</button>
+<button type="button" class="faq-category rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold" data-category="programs"><i class="fa-solid fa-book-open mr-2"></i>Programs</button>
+<button type="button" class="faq-category rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold" data-category="fees"><i class="fa-solid fa-coins mr-2"></i>Fees</button>
+<button type="button" class="faq-category rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold" data-category="careers"><i class="fa-solid fa-briefcase mr-2"></i>Careers</button>
+<button type="button" class="faq-category rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold" data-category="student-life"><i class="fa-solid fa-users mr-2"></i>Student Life</button>
+</div>
+
+<!-- FAQ CONTENT -->
+<div id="faqContainer" class="mt-12">
+
+<!-- ADMISSIONS -->
+<div class="faq-group active" data-group="admissions">
+<h2 class="faq-group-title text-2xl sm:text-3xl">Admissions</h2>
+<details class="faq-item">
+<summary class="faq-question"><span>How can I apply to the school?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Applications can be started by contacting the admissions office or submitting an enquiry through the school's official admissions process. You should prepare the required identification and academic documents before submitting your application.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>What documents are required for admission?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Required documents may include academic certificates, identification documents, passport photographs and other documents requested by the admissions office.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>Can I contact admissions before applying?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Yes. Prospective students are encouraged to contact the admissions team with questions about programs, requirements, fees and the application process.</div>
+</details>
+</div>
+
+<!-- PROGRAMS -->
+<div class="faq-group" data-group="programs">
+<h2 class="faq-group-title text-2xl sm:text-3xl">Programs &amp; Courses</h2>
+<details class="faq-item">
+<summary class="faq-question"><span>What programs does the school offer?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">The school focuses on hospitality and tourism education, including areas such as Food &amp; Beverage Service, Food &amp; Beverage Operation and Tourism.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>Are practical skills included in the courses?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Hospitality education combines academic knowledge with practical skills. Students can develop professional abilities through practical training and hospitality-focused learning activities.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>Is the school focused only on hotel operations?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">No. Hospitality and tourism education can cover multiple professional areas, including food and beverage, tourism, guest service, operations and professional leadership.</div>
+</details>
+</div>
+
+<!-- FEES -->
+<div class="faq-group" data-group="fees">
+<h2 class="faq-group-title text-2xl sm:text-3xl">Fees &amp; Scholarships</h2>
+<details class="faq-item">
+<summary class="faq-question"><span>How much are the school fees?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Fees can vary depending on the program and academic year. Contact the admissions or finance office for the current official fee structure.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>Are payment plans available?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Payment arrangements depend on the school's current policies. Students should contact the finance or admissions office for the latest available options.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>Does the school provide scholarships?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Scholarship and financial-support opportunities may vary by academic year. Contact the school directly for current information and eligibility requirements.</div>
+</details>
+</div>
+
+<!-- CAREERS -->
+<div class="faq-group" data-group="careers">
+<h2 class="faq-group-title text-2xl sm:text-3xl">Careers &amp; Internships</h2>
+<details class="faq-item">
+<summary class="faq-question"><span>Does the school provide internship opportunities?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Hospitality education commonly includes opportunities for students to gain practical industry experience. Contact the school to learn about current internship arrangements and partners.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>What careers can hospitality students pursue?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Graduates can pursue careers across hotels, restaurants, tourism businesses, events, guest relations, food and beverage, travel and other hospitality-related organizations.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>Does the school teach professional leadership?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Professional development can include communication, teamwork, service standards, leadership, problem solving and other skills needed in hospitality workplaces.</div>
+</details>
+</div>
+
+<!-- STUDENT LIFE -->
+<div class="faq-group" data-group="student-life">
+<h2 class="faq-group-title text-2xl sm:text-3xl">Student Life</h2>
+<details class="faq-item">
+<summary class="faq-question"><span>What is student life like?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Student life is designed around learning, practical development, teamwork and professional preparation within a hospitality-focused environment.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>Can students participate in activities outside class?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Activities can include student events, professional development activities, hospitality projects and community-focused experiences depending on the academic calendar.</div>
+</details>
+<details class="faq-item">
+<summary class="faq-question"><span>How can students get more information?</span><span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span></summary>
+<div class="faq-answer">Students and prospective applicants can contact the school through the admissions desk or submit an enquiry using the enquiry form on this page.</div>
+</details>
+</div>
+</div>
+
+<!-- EMPTY SEARCH -->
+<div id="faqEmptyState" class="mt-8">
+<div class="w-16 h-16 mx-auto rounded-full border border-[#D6B56A]/25 flex items-center justify-center text-[#D6B56A]"><i class="fa-solid fa-magnifying-glass"></i></div>
+<h3 class="mt-5 text-2xl">No questions found</h3>
+<p class="mt-2 text-sm text-white/45">Try another search term or contact our admissions team directly.</p>
+<button type="button" id="emptyStateEnquire" class="premium-button mt-6 px-6 py-3 rounded-xl">Ask a Question <i class="fa-solid fa-arrow-right"></i></button>
+</div>
+
+<!-- CTA -->
+<div class="glass-luxury mt-14 rounded-3xl p-7 sm:p-10 text-center">
+<div class="mx-auto w-14 h-14 rounded-full border border-[#D6B56A]/30 flex items-center justify-center text-[#D6B56A]"><i class="fa-solid fa-headset"></i></div>
+<h2 class="mt-5 text-2xl sm:text-3xl">Still have a specific question?</h2>
+<p class="mt-3 text-sm text-white/50 max-w-xl mx-auto leading-7">Our admissions team can help you with questions that are not answered above.</p>
+<button type="button" id="openInquiry" class="premium-button mt-7 px-7 py-3.5 rounded-xl">Contact Admissions <i class="fa-solid fa-arrow-right"></i></button>
+</div>
+</div>
+</section>
+</main>
+
+<!-- INQUIRY MODAL -->
+<div id="inquiryModal" class="fixed inset-0 z-[200] bg-black/75 backdrop-blur-md flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle" aria-hidden="true">
+<div class="modal-card w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl border border-[#D6B56A]/20 bg-[#071A12] shadow-2xl">
+
+<!-- MODAL HEADER -->
+<div class="flex items-start justify-between gap-5 p-6 sm:p-8 border-b border-white/10">
+<div>
+<p class="text-[10px] tracking-[.3em] uppercase text-[#D6B56A]">Admissions</p>
+<h2 id="inquiryTitle" class="mt-2 text-3xl">Send an Enquiry</h2>
+<p class="mt-2 text-sm text-white/45">Ask us anything about studying with us.</p>
+</div>
+<button type="button" id="closeInquiry" class="w-10 h-10 rounded-full border border-white/10 text-white/60 hover:text-[#D6B56A] hover:border-[#D6B56A]/40 transition" aria-label="Close inquiry form"><i class="fa-solid fa-xmark"></i></button>
+</div>
+
+<!-- FORM -->
+<form id="inquiryForm" class="p-6 sm:p-8">
+<div class="grid sm:grid-cols-2 gap-5">
+
+<!-- NAME -->
+<div>
+<label for="inquiryName" class="block text-xs font-semibold text-white/65 mb-2">Full Name</label>
+<input id="inquiryName" name="name" type="text" class="form-input rounded-xl px-4 py-3" placeholder="Your full name" required autocomplete="name">
+</div>
+
+<!-- EMAIL -->
+<div>
+<label for="inquiryEmail" class="block text-xs font-semibold text-white/65 mb-2">Email Address</label>
+<input id="inquiryEmail" name="email" type="email" class="form-input rounded-xl px-4 py-3" placeholder="you@example.com" required autocomplete="email">
+</div>
+</div>
+
+<!-- QUESTION -->
+<div class="mt-5">
+<label for="inquiryQuestion" class="block text-xs font-semibold text-white/65 mb-2">Your Question</label>
+<textarea id="inquiryQuestion" name="question" rows="6" class="form-input rounded-xl px-4 py-3 resize-none" placeholder="How can we help you?" required></textarea>
+</div>
+
+<div id="inquiryStatus" class="status-message" role="status" aria-live="polite"></div>
+
+<!-- BUTTON -->
+<button type="submit" class="premium-button w-full mt-6 py-3.5 rounded-xl"><i class="fa-solid fa-paper-plane"></i> Send Enquiry</button>
+<p class="mt-4 text-center text-[11px] text-white/30">Your enquiry is saved locally in this demo. Connect a backend later for real email/database submission.</p>
+</form>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer" class="luxury-footer">
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+
+<!-- TOP FOOTER -->
+<div class="grid lg:grid-cols-[1.4fr_1fr_1fr_1.3fr] gap-12">
+
+<!-- BRAND -->
+<div>
+<div class="flex items-center gap-3">
+<span class="logo-mark"><i class="fa-solid fa-hotel"></i></span>
+<div>
+<p class="text-[10px] tracking-[.28em] text-[#D6B56A]">RWANDA</p>
+<p class="text-sm font-bold tracking-[.08em]">SCHOOL OF HOSPITALITY</p>
+</div>
+</div>
+<p class="mt-6 max-w-sm text-sm leading-7 text-white/45">Developing hospitality professionals through knowledge, practical skills, service excellence and professional leadership.</p>
+
+<!-- SOCIAL -->
+<div class="flex flex-wrap gap-2 mt-7">
+<a href="#" class="footer-social" data-placeholder-social="Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#" class="footer-social" data-placeholder-social="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="#" class="footer-social" data-placeholder-social="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="#" class="footer-social" data-placeholder-social="Twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="https://wa.me/250780327623" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+<!-- EXPLORE -->
+<div>
+<h3 class="text-lg">Explore</h3>
+<div class="gold-divider !mx-0 mt-4 mb-5"></div>
+<ul class="space-y-3 text-sm">
+<li><a href="about.html" class="footer-link">About Us</a></li>
+<li><a href="programs.html" class="footer-link">Programs</a></li>
+<li><a href="experience.html" class="footer-link">Experience</a></li>
+<li><a href="partnerships.html" class="footer-link">Partnerships</a></li>
+<li><a href="campus.html" class="footer-link">Campus</a></li>
+<li><a href="faq.html" class="footer-link">Frequently Asked Questions</a></li>
+</ul>
+</div>
+
+<!-- ADMISSIONS -->
+<div>
+<h3 class="text-lg">Admissions</h3>
+<div class="gold-divider !mx-0 mt-4 mb-5"></div>
+<ul class="space-y-3 text-sm">
+<li><button type="button" class="footer-link" data-footer-inquiry>Apply Now</button></li>
+<li><button type="button" class="footer-link" data-footer-inquiry>Request Information</button></li>
+<li><button type="button" class="footer-link" data-footer-inquiry>Contact Admissions</button></li>
+<li><a href="#faq" class="footer-link">FAQ</a></li>
+</ul>
+</div>
+
+<!-- CONTACT -->
+<div>
+<h3 class="text-lg">Contact</h3>
+<div class="gold-divider !mx-0 mt-4 mb-5"></div>
+<ul class="space-y-4 text-sm text-white/50">
+<li class="flex items-start gap-3"><i class="fa-solid fa-location-dot text-[#D6B56A] mt-1"></i><span>Kigali, Rwanda</span></li>
+<li class="flex items-center gap-3"><i class="fa-solid fa-phone text-[#D6B56A]"></i><a href="tel:+250791684945" class="hover:text-[#D6B56A] transition">+250 791 684 945</a></li>
+<li class="flex items-center gap-3"><i class="fa-brands fa-whatsapp text-[#D6B56A]"></i><a href="https://wa.me/250780327623" target="_blank" rel="noopener noreferrer" class="hover:text-[#D6B56A] transition">WhatsApp Admissions</a></li>
+<li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-[#D6B56A]"></i><button type="button" data-footer-inquiry class="hover:text-[#D6B56A] transition">Send an enquiry</button></li>
+</ul>
+</div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="mt-16 rounded-3xl border border-[#D6B56A]/15 bg-white/[.025] p-6 sm:p-8">
+<div class="grid lg:grid-cols-[1fr_1.2fr] gap-8 items-center">
+<div>
+<p class="text-[10px] uppercase tracking-[.3em] text-[#D6B56A]">Stay Connected</p>
+<h3 class="mt-2 text-2xl">Receive School Updates</h3>
+<p class="mt-2 text-sm text-white/40">Get important admissions and school updates in your inbox.</p>
+</div>
+<form id="newsletterForm" class="flex flex-col sm:flex-row gap-3">
+<input id="newsletterEmail" type="email" class="form-input rounded-xl px-4 py-3" placeholder="Your email address" required autocomplete="email" aria-label="Newsletter email address">
+<button type="submit" class="premium-button px-6 py-3 rounded-xl whitespace-nowrap">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
+</form>
+</div>
+<div id="newsletterStatus" class="status-message" role="status" aria-live="polite"></div>
+</div>
+
+<!-- FOOTER COLOR CUSTOMIZER -->
+<div class="mt-10">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div>
+<button type="button" id="footerCustomizerToggle" class="text-xs text-white/50 hover:text-[#D6B56A] transition" aria-expanded="false" aria-controls="footerColorPanel"><i class="fa-solid fa-palette mr-2"></i>Customize Footer Color</button>
+</div>
+<span id="activeFooterColor" class="text-[10px] tracking-[.15em] uppercase text-white/25">Forest Gold</span>
+</div>
+<div id="footerColorPanel" class="footer-color-panel">
+<div class="flex flex-wrap gap-4 pt-5">
+<button type="button" class="footer-color-swatch active" style="background:#071A12" data-footer-name="Forest Gold" data-footer-primary="#071A12" data-footer-secondary="#0B241B" aria-label="Forest Gold footer"></button>
+<button type="button" class="footer-color-swatch" style="background:#050505" data-footer-name="Obsidian" data-footer-primary="#050505" data-footer-secondary="#111111" aria-label="Obsidian footer"></button>
+<button type="button" class="footer-color-swatch" style="background:#06382A" data-footer-name="Emerald" data-footer-primary="#06382A" data-footer-secondary="#0B5942" aria-label="Emerald footer"></button>
+<button type="button" class="footer-color-swatch" style="background:#24100F" data-footer-name="Burgundy" data-footer-primary="#24100F" data-footer-secondary="#421B18" aria-label="Burgundy footer"></button>
+<button type="button" class="footer-color-swatch" style="background:#081426" data-footer-name="Midnight Navy" data-footer-primary="#081426" data-footer-secondary="#102744" aria-label="Midnight Navy footer"></button>
+<button type="button" class="footer-color-swatch" style="background:#21170F" data-footer-name="Warm Mocha" data-footer-primary="#21170F" data-footer-secondary="#3A2819" aria-label="Warm Mocha footer"></button>
+<button type="button" class="footer-color-swatch" style="background:#15191A" data-footer-name="Luxury Slate" data-footer-primary="#15191A" data-footer-secondary="#252B2D" aria-label="Luxury Slate footer"></button>
+</div>
+</div>
+</div>
+
+<!-- FOOTER BOTTOM -->
+<div class="mt-10 pt-7 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-xs text-white/30 text-center md:text-left">© <span id="currentYear">2026</span> Rwanda School of Hospitality. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-5 text-xs">
+<button type="button" class="footer-link" data-policy="Privacy Policy">Privacy</button>
+<button type="button" class="footer-link" data-policy="Terms &amp; Conditions">Terms</button>
+<a href="#faq" class="footer-link">FAQ</a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backToTop" type="button" class="fixed right-5 bottom-5 z-[80] w-12 h-12 rounded-full border border-[#D6B56A]/30 bg-[#071A12]/90 backdrop-blur-xl text-[#D6B56A] shadow-xl flex items-center justify-center" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- TOAST -->
+<div id="toast" class="rounded-xl border border-[#D6B56A]/25 bg-[#071A12]/95 backdrop-blur-xl shadow-2xl px-4 py-3" role="status" aria-live="polite">
+<div class="flex items-start gap-3">
+<span id="toastIcon" class="text-[#D6B56A] mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+<div>
+<p id="toastTitle" class="font-semibold text-sm">Success</p>
+<p id="toastMessage" class="mt-1 text-xs text-white/45">Done.</p>
+</div>
+</div>
+</div>
+<script src="../JS/FAQ.js" defer></script>
+</body>
+</html>

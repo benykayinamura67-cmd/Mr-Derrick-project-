@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NOAH'S ARK | Premium Executive Admin Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              950: '#07100d',
+              900: '#0b211b',
+              800: '#14372D',
+              700: '#1b4d3e'
+            },
+            gold: {
+              DEFAULT: '#D4AF37',
+              light: '#E8D7A7',
+              dark: '#AA8C2C'
+            },
+            ink: '#07100d'
+          },
+
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Premium Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Dashboard Custom CSS -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(45, 131, 95, 0.22),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 90%,
+          rgba(212, 175, 55, 0.08),
+          transparent 40%
+        ),
+        #07100d;
+      color: #f7f5ec;
+      min-height: 100vh;
+    }
+
+    .glass {
+      background: rgba(14, 38, 30, 0.78);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    }
+
+    .glass-subtle {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    button,
+    .card,
+    input,
+    textarea,
+    select {
+      transition:
+        all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .field {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: white;
+      outline: 0;
+      font-size: 0.92rem;
+    }
+
+    .field:focus {
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12);
+    }
+
+    .field::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .field option {
+      background: #14372D;
+      color: #fff;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+      animation: fade 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.2);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(212, 175, 55, 0.4);
+    }
+
+    @media (max-width: 1023px) {
+      #sidebar.closed {
+        transform: translateX(-105%);
+      }
+
+      #sidebar {
+        transition: transform 0.3s ease;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-gold selection:text-ink">
+
+  <!-- Mobile Overlay -->
+  <div
+    id="overlay"
+    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden lg:hidden"
+  ></div>
+
+
+  <!-- =========================================================
+       SIDEBAR
+  ========================================================== -->
+
+  <aside
+    id="sidebar"
+    class="fixed inset-y-0 left-0 z-50 w-[280px] bg-forest-900/95 border-r border-white/10 flex flex-col shadow-2xl"
+  >
+
+    <!-- Brand -->
+    <div
+      class="h-24 px-6 flex items-center gap-3.5 border-b border-white/10 bg-forest-950/40"
+    >
+
+      <div
+        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold to-gold-light text-ink grid place-items-center font-black shadow-lg shadow-gold/10"
+      >
+        <span class="font-display text-xl">NA</span>
+      </div>
+
+      <div>
+        <div class="font-display tracking-wide font-bold text-base">
+          NOAH'S ARK
+        </div>
+
+        <div class="text-[10px] uppercase tracking-[.25em] text-gold font-semibold mt-0.5">
+          Executive CMS
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Administrator -->
+    <div class="p-4">
+
+      <div
+        class="glass-subtle rounded-2xl p-3.5 flex gap-3 items-center border border-white/10"
+      >
+
+        <div
+          class="w-10 h-10 rounded-xl bg-forest-700 grid place-items-center font-bold text-gold shadow-inner"
+        >
+          A
+        </div>
+
+        <div class="overflow-hidden">
+
+          <b class="text-sm block truncate">
+            Administrator
+          </b>
+
+          <p class="text-xs text-white/40 truncate">
+            Super Admin Portal
+          </p>
+
+        </div>
+
+        <span
+          class="ml-auto w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"
+        ></span>
+
+      </div>
+
+    </div>
+
+
+    <!-- Dynamic Navigation -->
+    <nav
+      id="nav"
+      class="flex-1 overflow-y-auto px-4 pb-6 space-y-1 text-sm"
+    ></nav>
+
+
+    <!-- Bottom Sidebar -->
+    <div
+      class="p-4 border-t border-white/10 bg-forest-950/30 space-y-1"
+    >
+
+      <button
+        onclick="go('settings')"
+        class="nav w-full text-left px-3.5 py-2.5 rounded-xl text-white/70 hover:text-white hover:bg-white/5 flex items-center gap-3 font-medium"
+      >
+        <i
+          data-lucide="settings"
+          class="w-4 h-4 text-gold"
+        ></i>
+
+        Settings
+      </button>
+
+      <button
+        onclick="toast('Secure session terminated successfully.')"
+        class="w-full text-left px-3.5 py-2.5 rounded-xl text-red-400/90 hover:bg-red-500/10 flex items-center gap-3 font-medium transition-colors"
+      >
+        <i
+          data-lucide="log-out"
+          class="w-4 h-4"
+        ></i>
+
+        Logout
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================================================
+       MAIN CONTENT
+  ========================================================== -->
+
+  <main class="lg:ml-[280px] min-h-screen flex flex-col">
+
+
+    <!-- TOPBAR -->
+    <header
+      class="sticky top-0 z-30 h-20 glass border-x-0 border-t-0 px-4 sm:px-8 flex items-center gap-4"
+    >
+
+      <button
+        id="menu"
+        class="lg:hidden p-2 rounded-xl glass-subtle text-white"
+      >
+        <i
+          data-lucide="menu"
+          class="w-5 h-5"
+        ></i>
+      </button>
+
+
+      <div class="flex-1">
+
+        <p
+          class="text-[10px] uppercase tracking-[.2em] text-white/40 font-semibold"
+        >
+          Noah's Ark /
+          <span
+            id="crumb"
+            class="text-gold"
+          >
+            Dashboard
+          </span>
+        </p>
+
+        <h1
+          id="title"
+          class="font-display text-xl sm:text-2xl font-bold tracking-tight"
+        >
+          Website Overview
+        </h1>
+
+      </div>
+
+
+      <!-- Search -->
+      <div class="hidden md:block w-72">
+
+        <div class="relative">
+
+          <i
+            data-lucide="search"
+            class="w-4 h-4 text-white/40 absolute left-3.5 top-3.5"
+          ></i>
+
+          <input
+            id="search"
+            class="field !pl-10 !py-2.5 text-xs"
+            placeholder="Search analytics, pages, CMS..."
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- Notification -->
+      <button
+        onclick="toast('No critical security alerts found.')"
+        class="relative p-2.5 rounded-xl glass-subtle hover:border-gold/30 text-white/80"
+      >
+
+        <i
+          data-lucide="bell"
+          class="w-5 h-5"
+        ></i>
+
+        <span
+          class="absolute top-2 right-2 w-2 h-2 rounded-full bg-gold"
+        ></span>
+
+      </button>
+
+
+      <!-- Admin Avatar -->
+      <div
+        class="hidden sm:grid place-items-center w-10 h-10 rounded-xl bg-forest-700 border border-gold/20 font-bold text-gold shadow-sm"
+      >
+        A
+      </div>
+
+    </header>
+
+
+    <!-- VIEW AREA -->
+    <div
+      class="p-4 sm:p-8 max-w-[1600px] mx-auto w-full flex-1"
+    >
+
+
+      <!-- =====================================================
+           DASHBOARD HOME
+      ====================================================== -->
+
+      <section
+        id="dashboard"
+        class="section active"
+      >
+
+        <!-- Hero -->
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 bg-gradient-to-r from-forest-800/60 to-transparent p-6 sm:p-8 rounded-3xl border border-gold/10"
+        >
+
+          <div>
+
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gold/10 text-gold border border-gold/20 mb-3"
+            >
+              <i
+                data-lucide="shield-check"
+                class="w-3.5 h-3.5"
+              ></i>
+
+              Live Control Center
+            </span>
+
+            <h2
+              class="font-display text-3xl sm:text-4xl font-bold"
+            >
+              Good day, Administrator.
+            </h2>
+
+            <p
+              class="text-white/50 text-sm sm:text-base mt-2 max-w-2xl"
+            >
+              Manage content, view live metrics, and control public data
+              for Noah's Ark International School of Hospitality & Tourism.
+            </p>
+
+          </div>
+
+
+          <button
+            onclick="go('home')"
+            class="bg-gradient-to-r from-gold to-gold-light text-ink font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-gold/20 hover:shadow-gold/30 flex items-center gap-2.5 text-sm"
+          >
+
+            <i
+              data-lucide="edit-3"
+              class="w-4 h-4"
+            ></i>
+
+            Edit Website Frontend
+
+          </button>
+
+        </div>
+
+
+        <!-- Statistics -->
+        <div
+          class="grid sm:grid-cols-2 xl:grid-cols-4 gap-5"
+          id="stats"
+        ></div>
+
+
+        <!-- Charts + Health -->
+        <div
+          class="grid xl:grid-cols-[1.6fr_1fr] gap-6 mt-6"
+        >
+
+          <!-- Performance -->
+          <div
+            class="glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between"
+          >
+
+            <div>
+
+              <div class="flex justify-between items-center">
+
+                <div>
+
+                  <h3
+                    class="font-display text-2xl font-bold"
+                  >
+                    Website Performance
+                  </h3>
+
+                  <p class="text-xs text-white/40 mt-1">
+                    Weekly visitor engagement trends
+                  </p>
+
+                </div>
+
+                <span
+                  class="text-xs text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 font-semibold"
+                >
+                  +14.2% this week
+                </span>
+
+              </div>
+
+              <div
+                class="h-64 flex items-end gap-3.5 sm:gap-6 mt-8 pt-4 border-t border-white/5"
+                id="bars"
+              ></div>
+
+            </div>
+
+
+            <div
+              class="flex justify-between text-xs text-white/40 mt-4 px-1 font-semibold"
+            >
+              <span>Mon</span>
+              <span>Tue</span>
+              <span>Wed</span>
+              <span>Thu</span>
+              <span>Fri</span>
+              <span>Sat</span>
+              <span>Sun</span>
+            </div>
+
+          </div>
+
+
+          <!-- Website Health -->
+          <div
+            class="glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between"
+          >
+
+            <div>
+
+              <h3
+                class="font-display text-2xl font-bold"
+              >
+                Website Health
+              </h3>
+
+              <p class="text-xs text-white/40 mt-1">
+                Core system indices & optimization
+              </p>
+
+              <div
+                id="health"
+                class="space-y-5 mt-6"
+              ></div>
+
+            </div>
+
+
+            <button
+              onclick="go('seo')"
+              class="w-full mt-8 py-3.5 rounded-xl border border-gold/30 text-gold hover:bg-gold/10 font-semibold text-sm flex items-center justify-center gap-2"
+            >
+
+              <i
+                data-lucide="globe"
+                class="w-4 h-4"
+              ></i>
+
+              Review Global SEO Config
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Recent Activity + Quick Actions -->
+        <div
+          class="grid xl:grid-cols-2 gap-6 mt-6"
+        >
+
+          <!-- Activity -->
+          <div
+            class="glass rounded-3xl p-6 sm:p-8"
+          >
+
+            <div
+              class="flex justify-between items-center mb-6"
+            >
+
+              <h3
+                class="font-display text-2xl font-bold"
+              >
+                Recent Activity
+              </h3>
+
+              <button
+                onclick="go('activity')"
+                class="text-xs text-gold hover:underline"
+              >
+                View All Log
+              </button>
+
+            </div>
+
+            <div
+              id="activity"
+              class="space-y-3"
+            ></div>
+
+          </div>
+
+
+          <!-- Quick Actions -->
+          <div
+            class="glass rounded-3xl p-6 sm:p-8"
+          >
+
+            <h3
+              class="font-display text-2xl font-bold mb-6"
+            >
+              Quick Actions
+            </h3>
+
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+
+              <button
+                onclick="modal('article')"
+                class="glass-subtle p-5 rounded-2xl text-left border border-white/5 hover:border-gold/30 group"
+              >
+
+                <div
+                  class="w-10 h-10 rounded-xl bg-gold/10 text-gold grid place-items-center mb-3 group-hover:scale-110 transition-transform"
+                >
+                  <i
+                    data-lucide="file-text"
+                    class="w-5 h-5"
+                  ></i>
+                </div>
+
+                <b class="text-sm block">
+                  New Article
+                </b>
+
+                <small class="text-white/40 mt-1 block">
+                  Publish news & events
+                </small>
+
+              </button>
+
+
+              <button
+                onclick="modal('staff')"
+                class="glass-subtle p-5 rounded-2xl text-left border border-white/5 hover:border-gold/30 group"
+              >
+
+                <div
+                  class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 grid place-items-center mb-3 group-hover:scale-110 transition-transform"
+                >
+                  <i
+                    data-lucide="user-plus"
+                    class="w-5 h-5"
+                  ></i>
+                </div>
+
+                <b class="text-sm block">
+                  Add Team Member
+                </b>
+
+                <small class="text-white/40 mt-1 block">
+                  Update public profile
+                </small>
+
+              </button>
+
+
+              <button
+                onclick="go('prospectus')"
+                class="glass-subtle p-5 rounded-2xl text-left border border-white/5 hover:border-gold/30 group"
+              >
+
+                <div
+                  class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 grid place-items-center mb-3 group-hover:scale-110 transition-transform"
+                >
+                  <i
+                    data-lucide="file-badge"
+                    class="w-5 h-5"
+                  ></i>
+                </div>
+
+                <b class="text-sm block">
+                  Update Prospectus
+                </b>
+
+                <small class="text-white/40 mt-1 block">
+                  Upload school brochure
+                </small>
+
+              </button>
+
+
+              <button
+                onclick="go('messages')"
+                class="glass-subtle p-5 rounded-2xl text-left border border-white/5 hover:border-gold/30 group"
+              >
+
+                <div
+                  class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 grid place-items-center mb-3 group-hover:scale-110 transition-transform"
+                >
+                  <i
+                    data-lucide="mail"
+                    class="w-5 h-5"
+                  ></i>
+                </div>
+
+                <b class="text-sm block">
+                  View Messages
+                </b>
+
+                <small class="text-white/40 mt-1 block">
+                  Check contact inbox
+                </small>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           DYNAMIC SECTIONS
+      ====================================================== -->
+
+      <div id="dynamicSections"></div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================================================
+       MODAL
+  ========================================================== -->
+
+  <div
+    id="modal"
+    class="fixed inset-0 z-[90] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4"
+  >
+
+    <div
+      class="glass rounded-3xl w-full max-w-xl p-6 sm:p-8 border border-gold/20 shadow-2xl relative"
+    >
+
+      <div
+        class="flex justify-between items-center mb-6 pb-4 border-b border-white/10"
+      >
+
+        <div>
+
+          <p
+            class="text-gold text-[10px] uppercase tracking-[.25em] font-bold"
+          >
+            CMS Record Manager
+          </p>
+
+          <h3
+            id="modalTitle"
+            class="font-display text-2xl font-bold mt-1"
+          ></h3>
+
+        </div>
+
+
+        <button
+          onclick="closeModal()"
+          class="w-9 h-9 rounded-xl glass-subtle grid place-items-center text-white/70 hover:text-white"
+        >
+
+          <i
+            data-lucide="x"
+            class="w-5 h-5"
+          ></i>
+
+        </button>
+
+      </div>
+
+
+      <div id="modalBody"></div>
+
+    </div>
+
+  </div>
+
+  <!-- =========================================================
+       TOAST
+  ========================================================== -->
+
+  <div
+    id="toast"
+    class="fixed right-6 bottom-6 z-[100] hidden glass rounded-2xl px-5 py-4 border border-gold/30 shadow-2xl flex items-center gap-3 text-sm font-medium"
+  ></div>
+
+  <!-- =========================================================
+       EXTERNAL JAVASCRIPT
+       All dashboard logic is now inside admin.js
+  ========================================================== -->
+
+  <script src="../JS/Admin.js"></script>
+
+</body>
+</html>
